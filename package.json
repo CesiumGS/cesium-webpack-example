@@ -1,0 +1,30 @@
+{
+  "name": "cesium-webpack-example",
+  "version": "1.0.0",
+  "description": "The minimal recomended setup for an app using Cesium with Webpack.",
+  "main": "index.js",
+  "keywords": [
+    "cesium",
+    "webpack",
+    "example"
+  ],
+  "author": {
+    "name": "Analytical Graphics, Inc.",
+    "url": "https://www.agi.com"
+  },
+  "homepage": "https://cesiumjs.org",
+  "license": "ISC",
+  "devDependencies": {
+    "cesium": "^1.37.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.6"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server --config webpack.config.js --open"
+  }
+}
