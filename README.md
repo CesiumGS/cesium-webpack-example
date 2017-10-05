@@ -17,7 +17,6 @@ The minimal recommended setup for an application using [Cesium](https://cesiumjs
 ##### ES6 Style Import
 
  	import Cesium from 'cesium/Cesium';
- 	var viewer = new Cesium.Viewer('cesiumContainer');
  
 ##### Require Cesium asset files
 
@@ -38,15 +37,23 @@ However, you may want to use a different version of cesium, like if you've clone
 
 	var cesiumSource = path.resolve(__dirname, '../path/to/cesium/Source');
 
-You could even point the cesium to a branch in github or another url in your `package.json` file.
+You could even point the cesium to a branch in GitHub or another url in your `package.json` file.
 
-### Optional Performance Configurations 
+### Source Maps
+
+Enable source maps in development for easier debugging. They are only available when using the development server. There are many [options](https://webpack.js.org/configuration/devtool/). Suggested would be `eval` for fast build and rebuilt time and allowing evaluation of the webpack generated code.
+
+Source maps can be enabled with the following config object:
+
+	devTool: `eval`
+
+### Performance Configurations 
 
 The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes.
 
 ##### Ignore
 
-Since Cesium is such a large library, it's recommended to ignore unused parts of the Cesium library by using the [`IgnorePlugin`](https://webpack.js.org/plugins/ignore-plugin/) included with Webpack.
+Since Cesium is such a large library, if you are requiring the entire Cesium object and not individual modules, it's recommended to ignore unused parts of the Cesium library by using the [`IgnorePlugin`](https://webpack.js.org/plugins/ignore-plugin/) included with webpack.
 
 For example, if you are not using default Assets, prevent them from being included in the bundle:
 
