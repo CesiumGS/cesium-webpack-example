@@ -54,7 +54,11 @@ module.exports = [{
     	new webpack.DefinePlugin({
     		// Define relative base path in cesium for loading assets
   			CESIUM_BASE_URL: JSON.stringify('')
-		})
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+		  name: 'cesium',
+		  minChunks: module => module.context && module.context.indexOf('cesium') !== -1
+		}),
     ],
 
 	// development server options
