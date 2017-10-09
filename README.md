@@ -2,10 +2,16 @@
 
 The minimal recommended setup for an application using [Cesium](https://cesiumjs.org/) with [Webpack](https://webpack.js.org/concepts/).
 
-### Running this example app
+### Running this application
 
 	npm install
 	npm start
+
+##### Available Scripts
+
+* `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
+* `npm run build` - Runs a webpack build with `webpack.config.js`
+* `npm run release` - Runs an optimized webpack build with `release.webpack.congif.js`
 
 ### Requiring Cesium in your application
  
@@ -18,9 +24,11 @@ The minimal recommended setup for an application using [Cesium](https://cesiumjs
 
  	import Cesium from 'cesium/Cesium';
  
-##### Require Cesium asset files
+##### Require Cesium static asset files
 
  	require('cesium/Widgets/widgets.css');
+
+ 	require('cesium/Assets/Textures/pin.svg');
 
 ##### Require specific modules from Cesium
 
@@ -51,20 +59,7 @@ Source maps can be enabled with the following config object:
 
 The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes.
 
-##### Ignore
-
-Since Cesium is such a large library, if you are requiring the entire Cesium object and not individual modules, it's recommended to ignore unused parts of the Cesium library by using the [`IgnorePlugin`](https://webpack.js.org/plugins/ignore-plugin/) included with webpack.
-
-For example, if you are not using default Assets, prevent them from being included in the bundle:
-
-	plugins: [
-	    // Ignore default Cesium Assets
-	    new webpack.IgnorePlugin(/Assets/, /cesium$/),
-  	],
-
-You can still include ignored files in your app by requiring them explicitly:
-
-	require('cesium/Source/Assets/approximateTerrainHeights.json');
+For best performance, make sure you are requiring individual modules from Cesium instead of the global Cesium object. Additionally, only copy the static assets that your app requires with the `CopyWebpackPlugin` by taking advantage of the [pattern options](https://github.com/webpack-contrib/copy-webpack-plugin#pattern-properties).
 
 ##### Removing pragmas
 
