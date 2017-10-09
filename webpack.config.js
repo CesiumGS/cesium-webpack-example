@@ -55,6 +55,7 @@ module.exports = [{
     		// Define relative base path in cesium for loading assets
   			CESIUM_BASE_URL: JSON.stringify('')
 		}),
+		// Split cesium into a seperate chunk
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: 'cesium',
 		  minChunks: module => module.context && module.context.indexOf('cesium') !== -1
@@ -63,6 +64,6 @@ module.exports = [{
 
 	// development server options
 	devServer: {
-		contentBase: './dist'
+		contentBase: path.join(__dirname, "dist")
 	}
 }];
