@@ -63,18 +63,27 @@ For best performance, make sure you are requiring individual modules from Cesium
 
 ##### Removing pragmas
 
-To remove pragmas like a traditional cesium release build, use the [`webpack-strip-block`](https://www.npmjs.com/package/webpack-strip-block) plugin.
+To remove pragmas like a traditional cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
+
+Install the plugin with npm,
+
+```
+npm install strip-pragma-loader --save-dev
+```
+
+and include the loader in `module.rules` with `debug` set to `false`.
 
 ```
 rules: [{
 	test: /\.js$/,
 	enforce: 'pre',
-	include: cesiumSource,
+	include: path.resolve(__dirname, cesiumSource),
 	use: [{
-		loader: 'webpack-strip-block',
+		loader: 'strip-pragma-loader',
 		options: {
-		    start: '>>includeStart(\'debug\', pragmas.debug);',
-		    end: '>>includeEnd(\'debug\')'
+		    pragmas: {
+				debug: false
+			}
 		}
 	}]
 }]
@@ -82,11 +91,25 @@ rules: [{
 
 ##### Uglify and Minify
 
-Compress the final size of the bundle by minifying included JavaScript using UglifyJS with the [`uglifyjs-webpack-plugin`](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/) included with Webpack.
+Compress the final size of the bundle by minifying included JavaScript using UglifyJS with the [`uglifyjs-webpack-plugin`](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/).
+
+Install the plugin,
+
+```
+npm install uglifyjs-webpack-plugin --save-dev
+```
+
+require it,
+
+```
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+```
+
+and include it in the list of plugins.
 
 ```
 plugins: [
-	new webpack.optimize.UglifyJsPlugin()
+	new UglifyJsPlugin()
 ]
 ```
 
