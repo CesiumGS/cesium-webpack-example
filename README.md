@@ -2,6 +2,8 @@
 
 The minimal recommended setup for an application using [Cesium](https://cesiumjs.org/) with [Webpack](https://webpack.js.org/concepts/).
 
+[![Build Status](https://travis-ci.org/AnalyticalGraphicsInc/cesium-webpack-example.svg?branch=using-custom-loader)](https://travis-ci.org/AnalyticalGraphicsInc/cesium-webpack-example)
+
 ### Running this application
 
 	npm install
@@ -132,3 +134,13 @@ module: {
 	},
 }
 ```
+
+## Contributions
+
+Pull requests are appreciated. Please use the same [Contributor License Agreement (CLA)](https://github.com/AnalyticalGraphicsInc/cesium/blob/master/CONTRIBUTING.md) used for [Cesium](https://cesiumjs.org/).
+
+---
+
+Developed by the Cesium team.
+
+<a href="https://cesium.com/"><img alt="Cesium" src="doc/cesium.png" /></a>
