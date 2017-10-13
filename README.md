@@ -63,6 +63,8 @@ The following optimizations are recommended for building for production and will
 
 For best performance, make sure you are requiring individual modules from Cesium instead of the global Cesium object. Additionally, only copy the static assets that your app requires with the `CopyWebpackPlugin` by taking advantage of the [pattern options](https://github.com/webpack-contrib/copy-webpack-plugin#pattern-properties).
 
+**For the numbers, see [bundle size comparisions](#bundle-size-comparisons)**
+
 ##### Removing pragmas
 
 To remove pragmas like a traditional cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
@@ -134,6 +136,15 @@ module: {
 	},
 }
 ```
+
+## Bundle size comparisons
+
+Here is a comparison of the Size of the separated `cesium.js` bundle for `release` and `build` configurations, for using the global `Cesium` object and including individual modules for the Hello World viewer.
+
+|     | `build` | `release` |
+| --- | --- | --- |
+| `Cesium` object | 9.91 MB | 2.82 MB |
+| modules | 7.43 MB | 1.91 MB |
 
 ## Contributions
 
