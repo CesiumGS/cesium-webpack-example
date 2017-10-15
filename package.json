@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "node_modules/.bin/webpack --config webpack.config.js",
-    "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js --open",
+    "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "release": "node_modules/.bin/webpack --config release.webpack.config.js"
   }
 }

@@ -9,13 +9,23 @@ The minimal recommended setup for an application using [Cesium](https://cesiumjs
 	npm install
 	npm start
 
+Navigate to `localhost:8080`.
+
 ##### Available Scripts
 
 * `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
 * `npm run build` - Runs a webpack build with `webpack.config.js`
 * `npm run release` - Runs an optimized webpack build with `release.webpack.congif.js`
 
+##### Configurations
+
+We've included two webpack configuration files in this repository. `webpack.config.js` contains the minimal recommended configuration for getting setup, and configuration for running the development server. `release.webpack.config.js` contains  an optimized configuration for production use.
+
 ### Requiring Cesium in your application
+
+Using either the `build` or `release` configurations provided, there are several ways to include Cesium in your application. There is the [CommonJS](http://requirejs.org/docs/commonjs.html) style syntax which uses `require`, and the newer [ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) style syntax which uses the `import` keyword. Both are supported by webpack.
+
+You can also include all modules under the global Cesium object using `Cesium.js', or the individual modules. Requiring individual modules is preferred, resulting in smaller bundle sizes and better performance in your application. See the [Performance Configurations](#performance-configurations) section for more information on improving performance in your application.
  
 ##### CommonJS Require
 
@@ -35,7 +45,12 @@ The minimal recommended setup for an application using [Cesium](https://cesiumjs
 ##### Require specific modules from Cesium
 
 	var Color = require('cesium/Core/Color');
-	var white = new Color.WHITE;
+	var c = Color.fromRandom();
+
+or with ES6 Syntax:
+
+	import Color from 'cesium/core/Color';
+	var c = Color.fromRandom();
 
 ### Using another Cesium location
 
@@ -59,11 +74,18 @@ Source maps can be enabled with the following config object:
 
 ### Performance Configurations 
 
-The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes.
+The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes. An example of these configuration can be found in `release.webpack.config.js`.
 
 For best performance, make sure you are requiring individual modules from Cesium instead of the global Cesium object. Additionally, only copy the static assets that your app requires with the `CopyWebpackPlugin` by taking advantage of the [pattern options](https://github.com/webpack-contrib/copy-webpack-plugin#pattern-properties).
 
-**For the numbers, see [bundle size comparisions](#bundle-size-comparisons)**
+#### Bundle size comparisons
+
+Here is a comparison of the size of the separated `cesium.js` bundle for `release` and `build` configurations, for using the global `Cesium` object and including individual modules for the Hello World viewer.
+
+|     | `build` | `release` |
+| --- | --- | --- |
+| `Cesium` object | 9.91 MB | 2.82 MB |
+| modules | 7.43 MB | 1.91 MB |
 
 ##### Removing pragmas
 
@@ -136,15 +158,6 @@ module: {
 	},
 }
 ```
-
-## Bundle size comparisons
-
-Here is a comparison of the Size of the separated `cesium.js` bundle for `release` and `build` configurations, for using the global `Cesium` object and including individual modules for the Hello World viewer.
-
-|     | `build` | `release` |
-| --- | --- | --- |
-| `Cesium` object | 9.91 MB | 2.82 MB |
-| modules | 7.43 MB | 1.91 MB |
 
 ## Contributions
 
