@@ -15,11 +15,11 @@ Navigate to `localhost:8080`.
 
 * `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
 * `npm run build` - Runs a webpack build with `webpack.config.js`
-* `npm run release` - Runs an optimized webpack build with `release.webpack.congif.js`
+* `npm run release` - Runs an optimized webpack build with `webpack.release.config.js`
 
 ##### Configurations
 
-We've included two webpack configuration files in this repository. `webpack.config.js` contains the minimal recommended configuration for getting setup, and configuration for running the development server. `release.webpack.config.js` contains  an optimized configuration for production use.
+We've included two webpack configuration files in this repository. `webpack.config.js` contains the minimal recommended configuration for getting setup, and configuration for running the development server. `webpack.release.config.js` contains  an optimized configuration for production use.
 
 ### Requiring Cesium in your application
 
@@ -74,7 +74,7 @@ Source maps can be enabled with the following config object:
 
 ### Performance Configurations 
 
-The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes. An example of these configuration can be found in `release.webpack.config.js`.
+The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes. An example of these configuration can be found in `webpack.release.config.js`.
 
 For best performance, make sure you are requiring individual modules from Cesium instead of the global Cesium object. Additionally, only copy the static assets that your app requires with the `CopyWebpackPlugin` by taking advantage of the [pattern options](https://github.com/webpack-contrib/copy-webpack-plugin#pattern-properties).
 
@@ -82,10 +82,10 @@ For best performance, make sure you are requiring individual modules from Cesium
 
 Here is a comparison of the size of the separated `cesium.js` bundle for `release` and `build` configurations, for using the global `Cesium` object and including individual modules for the Hello World viewer.
 
-|     | `build` | `release` |
-| --- | --- | --- |
-| `Cesium` object | 9.91 MB | 2.82 MB |
-| modules | 7.43 MB | 1.91 MB |
+|     | `build` | `release` | 'build' (gzipped) | `release` (gzipped) |
+| --- | --- | --- | --- | ---|
+| `Cesium` object | 9.91 MB | 2.82 MB | 1.64 MB | 745 kB |
+| modules | 7.43 MB | 1.91 MB | 1.17 MB | 513 kB | 
 
 ##### Removing pragmas
 
