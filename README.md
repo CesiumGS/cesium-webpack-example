@@ -16,6 +16,7 @@ Navigate to `localhost:8080`.
 * `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
 * `npm run build` - Runs a webpack build with `webpack.config.js`
 * `npm run release` - Runs an optimized webpack build with `webpack.release.config.js`
+* `npm run serve-release` - Runs an optimized webpack build with `webpack.release.config.js` and starts a development server
 
 ##### Configurations
 
