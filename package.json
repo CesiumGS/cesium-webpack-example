@@ -13,7 +13,7 @@
     "url": "https://www.agi.com"
   },
   "homepage": "https://cesiumjs.org",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "cesium": "http://cesium-dev.s3-website-us-east-1.amazonaws.com/cesium/master/cesium-1.38.0.tgz",
     "copy-webpack-plugin": "^4.0.1",
@@ -29,6 +29,7 @@
   "scripts": {
     "build": "node_modules/.bin/webpack --config webpack.config.js",
     "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
-    "release": "node_modules/.bin/webpack --config webpack.release.config.js"
+    "release": "node_modules/.bin/webpack --config webpack.release.config.js",
+    "serve-release": "node_modules/.bin/webpack-dev-server --config webpack.release.config.js"
   }
 }
