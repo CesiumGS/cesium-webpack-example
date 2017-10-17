@@ -1,6 +1,6 @@
 # cesium-webpack-example
 
-The minimal recommended setup for an application using [Cesium](https://cesiumjs.org/) with [Webpack](https://webpack.js.org/concepts/).
+The minimum recommended setup for an application using [Cesium](https://cesiumjs.org/) with [Webpack](https://webpack.js.org/concepts/).
 
 [![Build Status](https://travis-ci.org/AnalyticalGraphicsInc/cesium-webpack-example.svg?branch=using-custom-loader)](https://travis-ci.org/AnalyticalGraphicsInc/cesium-webpack-example)
 
@@ -11,7 +11,7 @@ The minimal recommended setup for an application using [Cesium](https://cesiumjs
 
 Navigate to `localhost:8080`.
 
-##### Available Scripts
+##### Available scripts
 
 * `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
 * `npm run build` - Runs a webpack build with `webpack.config.js`
@@ -20,52 +20,65 @@ Navigate to `localhost:8080`.
 
 ##### Configurations
 
-We've included two webpack configuration files in this repository. `webpack.config.js` contains the minimal recommended configuration for getting setup, and configuration for running the development server. `webpack.release.config.js` contains  an optimized configuration for production use.
+We've included two webpack configuration files in this repository. `webpack.config.js` contains the minimum recommended configuration for getting setup and configuration for running the development server. `webpack.release.config.js` contains an optimized configuration for production use.
 
 ### Requiring Cesium in your application
 
 Using either the `build` or `release` configurations provided, there are several ways to include Cesium in your application. There is the [CommonJS](http://requirejs.org/docs/commonjs.html) style syntax which uses `require`, and the newer [ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) style syntax which uses the `import` keyword. Both are supported by webpack.
 
-You can also include all modules under the global Cesium object using `Cesium.js', or the individual modules. Requiring individual modules is preferred, resulting in smaller bundle sizes and better performance in your application. See the [Performance Configurations](#performance-configurations) section for more information on improving performance in your application.
+You can also include all modules under the global Cesium object using `Cesium.js`, or the individual modules. Requiring individual modules is preferred, resulting in smaller bundle sizes and better performance in your application. See the [Performance Configurations](#performance-configurations) section for more information on improving performance in your application.
  
-##### CommonJS Require
+#### CommonJS `require`
+
+##### Require specific modules from Cesium (preferred over global)
+
+	var Color = require('cesium/Core/Color');
+	var c = Color.fromRandom();
+
+##### Require the global Cesium object
 
  	var Cesium = require('cesium/Cesium');
  	var viewer = new Cesium.Viewer('cesiumContainer');
 
-##### ES6 Style Import
-
- 	import Cesium from 'cesium/Cesium';
- 
 ##### Require Cesium static asset files
 
  	require('cesium/Widgets/widgets.css');
 
  	require('cesium/Assets/Textures/pin.svg');
 
-##### Require specific modules from Cesium
 
-	var Color = require('cesium/Core/Color');
-	var c = Color.fromRandom();
+#### ES6 style `import`
 
-or with ES6 Syntax:
+##### Import specific modules specific modules from Cesium (preferred over global)
 
 	import Color from 'cesium/core/Color';
 	var c = Color.fromRandom();
 
+##### Import the global Cesium object
+
+ 	import Cesium from 'cesium/Cesium';
+ 	var viewer = new Cesium.Viewer('cesiumContainer');
+
+##### Import Cesium static asset files
+	
+	import 'cesium/Widgets/widgets.css';
+
+	import 'cesium/Assets/Textures/pin.svg';
+
+
 ### Using another Cesium location
 
-We've set the cesium Source location to be what's included with the cesium npm module.
+We've set the `cesiumSource` location to be the contents of the Cesium npm module.
 
 	var cesiumSource = path.resolve(__dirname, 'node_modules/cesium/Source');
 
-However, you may want to use a different version of cesium, like if you've cloned the cesium source code directly. Just set the cesium location to the appropriate path.
+If, however, you want to use a different version of Cesium— for example, if you've cloned the Cesium source code directly— just set the Cesium location to the appropriate path.
 
 	var cesiumSource = path.resolve(__dirname, '../path/to/cesium/Source');
 
-You could even point the cesium to a branch in GitHub or another url in your `package.json` file.
+You could even point to a branch in GitHub or another url in your `package.json` file.
 
-### Source Maps
+### Source maps
 
 Enable source maps in development for easier debugging. They are only available when using the development server. There are many [options](https://webpack.js.org/configuration/devtool/) available. The one suggested here is `eval` for a balance of fast build and rebuild time and allowing evaluation of the webpack generated code.
 
@@ -73,11 +86,11 @@ Source maps can be enabled with the following config object:
 
 	devTool: `eval`
 
-### Performance Configurations 
+### Performance configurations
 
-The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes. An example of these configuration can be found in `webpack.release.config.js`.
+The following optimizations are recommended for building for production and will increase performance and result in smaller bundle sizes. An example of these configurations can be found in `webpack.release.config.js`.
 
-For best performance, make sure you are requiring individual modules from Cesium instead of the global Cesium object. Additionally, only copy the static assets that your app requires with the `CopyWebpackPlugin` by taking advantage of the [pattern options](https://github.com/webpack-contrib/copy-webpack-plugin#pattern-properties).
+For best performance, make sure you are requiring individual modules from Cesium instead of the global Cesium object. Additionally, copy only the static assets that your app requires with the `CopyWebpackPlugin` by taking advantage of the [pattern options](https://github.com/webpack-contrib/copy-webpack-plugin#pattern-properties).
 
 #### Bundle size comparisons
 
@@ -90,7 +103,7 @@ Here is a comparison of the size of the separated `cesium.js` bundle for `releas
 
 ##### Removing pragmas
 
-To remove pragmas like a traditional cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
+To remove pragmas such as a traditional Cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
 
 Install the plugin with npm,
 
@@ -116,7 +129,7 @@ rules: [{
 }]
 ```
 
-##### Uglify and Minify
+##### Uglify and minify
 
 Compress the final size of the bundle by minifying included JavaScript using UglifyJS with the [`uglifyjs-webpack-plugin`](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/).
 
