@@ -67,7 +67,7 @@ You could even point the cesium to a branch in GitHub or another url in your `pa
 
 ### Source Maps
 
-Enable source maps in development for easier debugging. They are only available when using the development server. There are many [options](https://webpack.js.org/configuration/devtool/). Suggested would be `eval` for fast build and rebuilt time and allowing evaluation of the webpack generated code.
+Enable source maps in development for easier debugging. They are only available when using the development server. There are many [options](https://webpack.js.org/configuration/devtool/) available. The one suggested here is `eval` for a balance of fast build and rebuild time and allowing evaluation of the webpack generated code.
 
 Source maps can be enabled with the following config object:
 
