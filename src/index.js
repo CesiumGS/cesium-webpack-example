@@ -1,9 +1,11 @@
 require('cesium/Widgets/widgets.css');
+require('cesium/Widgets/lighter.css')
 require('./css/main.css');
 
 var Cesium = require('cesium/Cesium');
+var Sandcastle = require('./Sandcastle');
 
-// Example app
+// BEGIN SANDCASTLE EXAMPLE
 
 var viewer = new Cesium.Viewer('cesiumContainer');
 
@@ -136,3 +138,7 @@ var toFireworks = Cesium.Cartesian3.subtract(emitterInitialLocation, cameraOffse
 Cesium.Cartesian3.normalize(toFireworks, toFireworks);
 var angle = Cesium.Math.PI_OVER_TWO - Math.acos(Cesium.Cartesian3.dot(toFireworks, Cesium.Cartesian3.UNIT_Z));
 camera.lookUp(angle);
+
+Sandcastle.addDefaultToolbarButton('Sandcastle Button', function() {
+    console.log('Runs a function');
+});
