@@ -25,8 +25,12 @@ module.exports = [{
         toUrlUndefined: true
     },
     node: {
-        // Resolve node module use of fs
-        fs: "empty"
+        // Avoid including node libraries
+        fs: "empty",
+        http: "empty",
+        https: "empty",
+        zlib: "empty",
+        buffer: "empty"
     },
     resolve: {
         alias: {
