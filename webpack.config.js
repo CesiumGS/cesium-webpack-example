@@ -27,10 +27,10 @@ module.exports = [{
     node: {
         // Avoid including node libraries
         fs: "empty",
+        Buffer: false,
         http: "empty",
         https: "empty",
         zlib: "empty",
-        buffer: "empty",
         url: "empty"
     },
     resolve: {
