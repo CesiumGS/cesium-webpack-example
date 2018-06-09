@@ -30,7 +30,8 @@ module.exports = [{
         http: "empty",
         https: "empty",
         zlib: "empty",
-        buffer: "empty"
+        buffer: "empty",
+        url: "empty"
     },
     resolve: {
         alias: {
