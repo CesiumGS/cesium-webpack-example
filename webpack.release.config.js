@@ -21,29 +21,22 @@ module.exports = [{
         // Needed by Cesium for multiline strings
         sourcePrefix: ''
     },
-    amd: {
-        // Enable webpack-friendly use of require in cesium
-        toUrlUndefined: true
-    },
     node: {
         // Resolve node module use of fs
-        fs: "empty"
+        fs: "empty",
+        Buffer: false,
+        http: "empty",
+        https: "empty",
+        zlib: "empty"
     },
     resolve: {
-        alias: {
-            // Cesium module name
-            cesium: path.resolve(__dirname, cesiumSource)
-        }
+        mainFields: ['module', 'main']
     },
     module: {
         rules: [{
             test: /\.css$/,
             use: ['style-loader', {
-                loader: 'css-loader',
-                options: {
-                    // Minify css
-                    minimize: true
-                }
+                loader: 'css-loader'
             }]
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
@@ -76,13 +69,6 @@ module.exports = [{
             CESIUM_BASE_URL: JSON.stringify('')
         }),
         // Uglify js files
-        new UglifyJsPlugin(),
-        // Split cesium into a seperate bundle
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'cesium',
-            minChunks: function (module) {
-                return module.context && module.context.indexOf('cesium') !== -1;
-            }
-        })
+        new UglifyJsPlugin()
     ]
 }];

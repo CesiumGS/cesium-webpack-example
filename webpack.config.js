@@ -20,19 +20,16 @@ module.exports = [{
         // Needed by Cesium for multiline strings
         sourcePrefix: ''
     },
-    amd: {
-        // Enable webpack-friendly use of require in cesium
-        toUrlUndefined: true
-    },
     node: {
         // Resolve node module use of fs
-        fs: "empty"
+        fs: "empty",
+        Buffer: false,
+        http: "empty",
+        https: "empty",
+        zlib: "empty"
     },
     resolve: {
-        alias: {
-            // Cesium module name
-            cesium: path.resolve(__dirname, cesiumSource)
-        }
+        mainFields: ['module', 'main']
     },
     module: {
         rules: [{
@@ -54,13 +51,6 @@ module.exports = [{
         new webpack.DefinePlugin({
             // Define relative base path in cesium for loading assets
             CESIUM_BASE_URL: JSON.stringify('')
-        }),
-        // Split cesium into a seperate bundle
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'cesium',
-            minChunks: function (module) {
-                return module.context && module.context.indexOf('cesium') !== -1;
-            }
         })
     ],
 
