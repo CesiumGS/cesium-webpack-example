@@ -4,22 +4,17 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// The path to the cesium source code
-const cesiumSource = 'node_modules/cesium/Source';
-const cesiumWorkers = '../Build/Cesium/Workers';
-
 module.exports = [{
+    mode: 'development',
     context: __dirname,
     entry: {
         app: './src/index.js'
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist'),
-
-        // Needed by Cesium for multiline strings
-        sourcePrefix: ''
+        path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'eval',
     node: {
         // Resolve node module use of fs
         fs: "empty",
@@ -45,9 +40,10 @@ module.exports = [{
             template: 'src/index.html'
         }),
         // Copy Cesium Assets, Widgets, and Workers to a static directory
-        new CopyWebpackPlugin([{from: path.join(cesiumSource, cesiumWorkers), to: 'Workers'}]),
-        new CopyWebpackPlugin([{from: path.join(cesiumSource, 'Assets'), to: 'Assets'}]),
-        new CopyWebpackPlugin([{from: path.join(cesiumSource, 'Widgets'), to: 'Widgets'}]),
+        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' }]),
+        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' }]),
+        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' }]),
+        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' }]),
         new webpack.DefinePlugin({
             // Define relative base path in cesium for loading assets
             CESIUM_BASE_URL: JSON.stringify('')
