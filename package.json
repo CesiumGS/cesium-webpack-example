@@ -15,7 +15,7 @@
   "homepage": "https://cesiumjs.org",
   "license": "Apache-2.0",
   "dependencies": {
-    "cesium": "http://cesium-dev.s3-website-us-east-1.amazonaws.com/cesium/no-import-meta/cesium-1.62.0-no-import-meta32711.tgz"
+    "cesium": "^1.63.1"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
