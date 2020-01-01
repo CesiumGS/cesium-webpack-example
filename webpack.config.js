@@ -33,6 +33,10 @@ module.exports = [{
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
             use: ['url-loader']
+        }, {
+            test: /\.json$/i,
+            type: 'javascript/auto',
+            loader: 'json-loader'
         }]
     },
     plugins: [
