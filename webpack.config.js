@@ -17,11 +17,11 @@ module.exports = [{
     devtool: 'eval',
     node: {
         // Resolve node module use of fs
-        fs: "empty",
+        fs: 'empty',
         Buffer: false,
-        http: "empty",
-        https: "empty",
-        zlib: "empty"
+        http: 'empty',
+        https: 'empty',
+        zlib: 'empty'
     },
     resolve: {
         mainFields: ['module', 'main']
@@ -52,6 +52,6 @@ module.exports = [{
 
     // development server options
     devServer: {
-        contentBase: path.join(__dirname, "dist")
+        contentBase: path.join(__dirname, 'dist')
     }
 }];
