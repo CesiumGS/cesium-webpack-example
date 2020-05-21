@@ -53,11 +53,7 @@ module.exports = [{
             // in cesium/Source/Core/buildModuleUrl.js
             const { resource, context, dependencies } = ctx;
             if (resource === context) {
-                dependencies.forEach(dependency => {
-                    if (dependency.userRequest === '.' && dependency.critical) {
-                        dependency.critical = false;
-                    }
-                });
+                dependencies.forEach(dependency => dependency.critical = false);
             }
             return ctx;
         })
