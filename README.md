@@ -1,6 +1,6 @@
 # cesium-webpack-example
 
-A minimal recommended setup for an applications using [Cesium](https://cesiumjs.org/) with [Webpack](https://webpack.js.org/concepts/).
+A minimal recommended setup for an applications using [Cesium](https://cesium.com) with [Webpack](https://webpack.js.org/concepts/).
 
 [![Build Status](https://travis-ci.org/AnalyticalGraphicsInc/cesium-webpack-example.svg?branch=using-custom-loader)](https://travis-ci.org/AnalyticalGraphicsInc/cesium-webpack-example)
 
