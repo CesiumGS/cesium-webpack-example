@@ -51,6 +51,15 @@ module.exports = [{
         new webpack.DefinePlugin({
             // Define relative base path in cesium for loading assets
             CESIUM_BASE_URL: JSON.stringify('')
+        }),
+        new webpack.ContextReplacementPlugin(/cesium\/Source\/Core/, ctx => {
+            // Suppress warnings "require function is used in a way in which dependencies cannot be statically extracted"
+            // in cesium/Source/Core/buildModuleUrl.js
+            const { resource, context, dependencies } = ctx;
+            if (resource === context) {
+                dependencies.forEach(dependency => dependency.critical = false);
+            }
+            return ctx;
         })
     ],
 
