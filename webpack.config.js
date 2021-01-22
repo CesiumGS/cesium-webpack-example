@@ -1,8 +1,9 @@
+const path = require('path');
+
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
 
 module.exports = {
   mode: 'development',
