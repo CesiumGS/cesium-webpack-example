@@ -17,11 +17,10 @@ module.exports = [{
     devtool: 'eval',
     node: {
         // Resolve node module use of fs
-        fs: "empty",
-        Buffer: false,
-        http: "empty",
-        https: "empty",
-        zlib: "empty"
+
+        global: false,
+        __filename: false,
+        __dirname: false
     },
     resolve: {
         mainFields: ['module', 'main']
