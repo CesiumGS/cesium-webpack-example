@@ -1,6 +1,5 @@
 
 import { Cesium3DTileset, createWorldTerrain, IonResource, Viewer } from 'cesium';
-// import "cesium/Source/Widgets/widgets.css";
 import "../node_modules/cesium/Source/Widgets/widgets.css";
 import "./css/main.css";
 
