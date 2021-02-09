@@ -21,16 +21,17 @@
     "copy-webpack-plugin": "^7",
     "css-loader": "^5.0.2",
     "html-webpack-plugin": "^5.0.0",
+    "strip-pragma-loader": "^1.0.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4",
-    "webpack": "5",
-    "webpack-cli": "^4",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
     "build": "node_modules/.bin/webpack --config webpack.config.js",
-    "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "start": "node_modules/.bin/webpack serve --config webpack.config.js",
     "release": "node_modules/.bin/webpack --config webpack.release.config.js",
-    "serve-release": "node_modules/.bin/webpack-dev-server --config webpack.release.config.js --content-base /dist"
+    "serve-release": "node_modules/.bin/webpack serve --config webpack.release.config.js --content-base /dist"
   }
 }

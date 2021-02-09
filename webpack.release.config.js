@@ -16,11 +16,9 @@ module.exports = [{
     },
     node: {
         // Resolve node module use of fs
-        fs: "empty",
-        Buffer: false,
-        http: "empty",
-        https: "empty",
-        zlib: "empty"
+        global: false,
+        __filename: false,
+        __dirname: false
     },
     resolve: {
         mainFields: ['module', 'main']
@@ -32,7 +30,7 @@ module.exports = [{
             sideEffects: true
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-            use: ['url-loader']
+            type:'asset/inline'
         }, {
             // Remove pragmas
             test: /\.js$/,
