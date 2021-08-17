@@ -74,5 +74,3 @@ Pull requests are appreciated. Please use the same [Contributor License Agreemen
 ---
 
 Developed by the Cesium team.
-
-<a href="https://cesium.com/"><img alt="Cesium" src="doc/cesium.png" /></a>
