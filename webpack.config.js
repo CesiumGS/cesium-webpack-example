@@ -42,7 +42,7 @@ module.exports = {
             template: 'src/index.html'
         }),
         // Copy Cesium Assets, Widgets, and Workers to a static directory
-        new CopywebpackPlugin({ 
+        new CopywebpackPlugin({
             patterns: [
                 { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
                 { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
@@ -61,4 +61,3 @@ module.exports = {
     mode: 'development',
     devtool: 'eval',
 };
-
