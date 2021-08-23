@@ -326,7 +326,6 @@ module.exports = {
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'dist'),
-        // Needed to compile multiline strings in Cesium
         sourcePrefix: ''
     },
     amd: {

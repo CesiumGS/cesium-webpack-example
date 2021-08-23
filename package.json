@@ -1,13 +1,13 @@
 {
   "name": "cesiumjs-webpack-tutorial",
   "version": "1.0.0",
-  "description": "",
+  "description": "Getting started with CesiumJS and Webpack.",
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/webpack --config webpack.config.js",
     "start": "node_modules/.bin/webpack serve --config webpack.config.js --open"
   },
-  "author": "",
+  "author": "Sam Rothstein",
   "license": "ISC",
   "devDependencies": {
     "cesium": "^1.84.0",
