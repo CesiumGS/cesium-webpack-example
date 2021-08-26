@@ -1,3 +1,4 @@
+// import * as Cesium from "../node_modules/cesium"
 import * as Cesium from "cesium"
 
 // Your access token can be found at: https://cesium.com/ion/tokens.
