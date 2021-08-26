@@ -1,5 +1,6 @@
-// import * as Cesium from "../node_modules/cesium"
-import * as Cesium from "cesium"
+import * as Cesium from "../node_modules/cesium"
+//import * as Cesium from "cesium"
+//import Cesium from 'cesium/Cesium';
 
 // Your access token can be found at: https://cesium.com/ion/tokens.
 // This is the default access token from your ion account
