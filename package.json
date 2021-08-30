@@ -1,6 +1,6 @@
 {
   "name": "cesiumjs-webpack-tutorial",
-  "version": "1.0.0-canary.0",
+  "version": "1.0.0",
   "description": "Getting started with CesiumJS and Webpack.",
   "main": "index.js",
   "scripts": {
