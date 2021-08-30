@@ -30,10 +30,10 @@ module.exports = {
     module: {
         rules: [{
             test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
+            use: [ 'style-rules', 'css-rules' ]
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-            use: [ 'url-loader' ]
+            use: [ 'url-rules' ]
         }]
     },
     plugins: [
