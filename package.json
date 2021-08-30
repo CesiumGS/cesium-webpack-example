@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/webpack --config webpack.config.js",
-    "start": "node_modules/.bin/webpack serve --config webpack.config.js --open",
-    "release": "node_modules/.bin/webpack --config webpack.release.config.js",
-    "serve-release": "node_modules/.bin/webpack-dev-server --config webpack.release.config.js --content-base /dist"
+    "start": "node_modules/.bin/webpack serve --config webpack.config.js --open"
   },
   "author": "Sam Rothstein",
   "license": "ISC",
