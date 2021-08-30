@@ -1,4 +1,4 @@
-import {Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "../node_modules/cesium"
+import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "../node_modules/cesium"
 import "../node_modules/cesium/Build/Cesium/Widgets/widgets.css";
 
 // Your access token can be found at: https://cesium.com/ion/tokens.
