@@ -1,6 +1,6 @@
 {
   "name": "cesiumjs-webpack-tutorial",
-  "version": "1.0.0",
+  "version": "1.0.0-canary.0",
   "description": "Getting started with CesiumJS and Webpack.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "cesiumjs": "^1.10.0",
-    "es6": "^0.0.7"
+    "es6": "^0.0.7",
+    "release": "^6.3.0"
   }
 }
