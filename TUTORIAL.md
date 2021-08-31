@@ -25,10 +25,6 @@ In this tutorial, we will build a simple web app from the ground up using webpac
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>Hello World!</title>
   </head>
   <body>
     <p>Hello World!</p>
@@ -375,23 +371,27 @@ module.exports = {
 **Incorporate CesiumJS**
 1. Updated `index.js` with CesiumJS starter code:
 ```
+import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "../node_modules/cesium"
+import "../node_modules/cesium/Build/Cesium/Widgets/widgets.css";
+
 // Your access token can be found at: https://cesium.com/ion/tokens.
 // This is the default access token from your ion account
-
-Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1OWUxNy1mMWZiLTQzYjYtYTQ0OS1kMWFjYmFkNjc5YzciLCJpZCI6NTc3MzMsImlhdCI6MTYyNzg0NTE4Mn0.XcKpgANiY19MC4bdFUXMVEBToBmqS8kuYpUlxJHYZxk';
+Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1OWUxNy1mMWZiLTQzYjYtYTQ0OS1kMWFjYmFkNjc5YzciLCJpZCI6NTc3MzMsImlhdCI6MTYyNzg0NTE4Mn0.XcKpgANiY19MC4bdFUXMVEBToBmqS8kuYpUlxJHYZxk';
 
 // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
-const viewer = new Cesium.Viewer('cesiumContainer', {
-  terrainProvider: Cesium.createWorldTerrain()
-});    
+const viewer = new Viewer('cesiumContainer', {
+  terrainProvider: createWorldTerrain()
+});
+
 // Add Cesium OSM Buildings, a global 3D buildings layer.
-const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());   
+viewer.scene.primitives.add(createOsmBuildings());   
+
 // Fly the camera to San Francisco at the given longitude, latitude, and height.
 viewer.camera.flyTo({
-  destination : Cesium.Cartesian3.fromDegrees(-122.4175, 37.655, 400),
+  destination : Cartesian3.fromDegrees(-122.4175, 37.655, 400),
   orientation : {
-    heading : Cesium.Math.toRadians(0.0),
-    pitch : Cesium.Math.toRadians(-15.0),
+    heading : Math.toRadians(0.0),
+    pitch : Math.toRadians(-15.0),
   }
 });
 ```
@@ -402,13 +402,9 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Include the CesiumJS JavaScript and CSS files -->
-  <script src="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Cesium.js"></script>
-  <link href="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
 </head>
 <body>
   <div id="cesiumContainer"></div>
- </div>
 </body>
 </html>
 ```
@@ -417,7 +413,7 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 
 ![South San Francisco](./screenshots/ssf2.png)
 
-Copy and paste your favorite Sandcastle example. For example, [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo makes for a great conclusion.
+Copy and paste your favorite Sandcastle example. For example, [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo makes for a fun demo.
 
 ![South San Francisco](./screenshots/fw.png)
 
