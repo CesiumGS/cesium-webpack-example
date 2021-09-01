@@ -12,7 +12,7 @@ In this tutorial, we will build a simple web app from the ground up using webpac
 **Initialize an app with npm**
 
 1. Create a new directory for your app.
-2. Open a console window and navagate to the directory
+2. Open a console window and navigate to the directory
 3. Run `npm init` and enter in the requested details about your application. If you are unsure about any prompts, press `Enter` to use the default value. You can modify your selections at any point in the `package.json` file that was created.
 
 **Create the app code**
@@ -59,11 +59,10 @@ module.exports = {
 };
 ```
 In this code, `context` specifies the base path for your files. `entry` is used to specify bundles and `src/index.js` is our entry point. Webpack will output the bundel `app.js` to the folder `dist`, that webpack will create at runtime.
-4. Webpack loads everything like a module. [loaders](https://webpack.js.org/concepts/#loaders) are used to load CSS and other asset files. Install the [style-loader](https://webpack.js.org/loaders/style-loader/#src/components/Sidebar/Sidebar.jsx), [css-loader](https://webpack.js.org/loaders/css-loader/), and [url-loader](https://webpack.js.org/loaders/url-loader/) using `npm install --save-dev style-loader css-loader url-loader`. Feel free to install any other loaders you may need in the future. 
+4. Webpack loads everything like a module. [loaders](https://webpack.js.org/concepts/#loaders) are used to load CSS and other asset files. Install the [style-loader](https://webpack.js.org/loaders/style-loader/#src/components/Sidebar/Sidebar.jsx), [css-loader](https://webpack.js.org/loaders/css-loader/), and [url-loader](https://webpack.js.org/loaders/url-loader/) using `npm install --save-dev style-loader css-loader url-loader`. Feel free to install any other loaders you may need in the future. Loaders can be installed at any point during this process.
 5. Update `webpack.config.js` by adding two `module.rules`. The first rule should support CSS files and the second rule should support other static files. For each rule, define `test` for the types of files to load and `use` to specify the list of loaders. `webpack.config.js` should look something like
 ```
 const path = require('path');
-
 const webpack = require('webpack');
 
 module.exports = {
@@ -86,11 +85,10 @@ module.exports = {
     }
 };
 ```
-6. To defined `index.html` and inject our bundle into that page we will be using a webpack [plugin](https://webpack.js.org/concepts/#plugins) called [html-webpack-plugin](https://webpack.js.org/concepts/#plugins), use the command `npm install --save-dev html-webpack-plugin` to install the necessary plugin.
+6. To defined `index.html` and inject our bundle into that page we will be using a webpack [plugin](https://webpack.js.org/concepts/#plugins) called [html-webpack-plugin](https://webpack.js.org/concepts/#plugins). Use the command `npm install --save-dev html-webpack-plugin` to install the necessary plugin.
 7. Require html-webpack-plugin in `webpack.config.js` by adding it to the `plugins` section. Next, pass `src/index.html` as our `template`. Finally, specify the mode option for webpack by adding `mode: 'development'` to `webpack.config.js`.`webpack.config.js` should now look something like
 ```
 const path = require('path');
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -137,7 +135,7 @@ If done correctly, `package.json` should look something like this
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node_modules/.bin/webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -147,15 +145,12 @@ If done correctly, `package.json` should look something like this
     "style-loader": "^3.2.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.50.0"
-  },
-  "scripts": {
-    "build": "node_modules/.bin/webpack --config webpack.config.js"
   }
 }
 ```
 
 Please note that details of this json file will vary based on your selections in step 3 of **Initialize an app with npm**.
-2. Run `npm run build`. Install CLI for webpack if necessary. 
+2. Run the command `npm run build`. Install CLI for webpack if necessary. 
 3. Ensure that there are no errors and your output looks something like
 ```
 $ npm run build
@@ -206,7 +201,6 @@ devServer: {
 If added correctly, `webpack.config.js` should look like
 ```
 const path = require('path');
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -255,7 +249,6 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 const cesiumSource = 'node_modules/cesium/Source';
 const cesiumWorkers = '../Build/Cesium/Workers';
 const CopywebpackPlugin = require('copy-webpack-plugin');
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -429,7 +422,7 @@ Source maps allow webpack to trace errors back to the original content. They off
 
 Please note that source maps are not recommended for production code.
 
-**Resources**
+**Additional Resources**
 
 The official cesium-webpack-example  repo contains the minimal webpack configuration, the hello world code covered in this tutorial, and instructions for optional code configurations.
 
