@@ -191,47 +191,8 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
   }
 }
 ```
-3. Tell the development server to serve files in the `dist` folder. This can be accomplished by adding the following code to `webpack.config.js`
-```
-// development server options
-devServer: {
-    contentBase: path.join(__dirname, "dist")
-}
-```
-If added correctly, `webpack.config.js` should look like
-```
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = {
-    context: __dirname,
-    entry: {
-        app: './src/index.js'
-    },
-    output: {
-        filename: 'app.js',
-        path: path.resolve(__dirname, 'dist'),
-    },
-    module: {
-        rules: [{
-            test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
-        }, {
-            test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-            use: [ 'url-loader' ]
-        }]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html'
-        })
-    ],
-    mode: 'development'
-};
-```
-4. Run `npm start` and open http://localhost:8080/ in a web browser.
-5. Ensure that you see Hello World!
+3. Run `npm start` and open http://localhost:8080/ in a web browser.
+4. Ensure that you see Hello World!
 
 ![South San Francisco](./screenshots/hw.png)
 
@@ -242,7 +203,7 @@ CesiumJS is a large and complex library. In additional to JavaScript modules, it
 First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized, which gives us less flexibility.
 
 ## Install CesiumJS
-1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`.
+1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`. Install the [CopyWebpackPluigin](https://webpack.js.org/plugins/copy-webpack-plugin/) module from npm using the command `npm install copy-webpack-plugin --save-dev`.
 2. Update `sourcePrefix` to tell CesiumJS that the version of AMD webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. In addition, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like
 ```
 // The path to the CesiumJS source code
@@ -288,10 +249,6 @@ module.exports = {
             template: 'src/index.html'
         })
     ],
-    // development server options
-    devServer: {
-        contentBase: path.join(__dirname, "dist")
-    },
     mode: 'development',
 };
 ```
@@ -353,10 +310,6 @@ module.exports = {
             CESIUM_BASE_URL: JSON.stringify('')
         })
     ],
-    // development server options
-    devServer: {
-        contentBase: path.join(__dirname, "dist")
-    },
     mode: 'development',
 };
 ```
@@ -401,7 +354,7 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 </body>
 </html>
 ```
-3. Run the command `nmp build`. Ensure that the project is built correctly.
+3. Run the command `npm run build`. Ensure that the project is built correctly.
 4. Run `npm start` and open http://localhost:8080/ in a web browser to see the CesiumJS viewer.
 
 ![South San Francisco](./screenshots/ssf2.png)
