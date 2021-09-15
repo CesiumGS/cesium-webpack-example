@@ -199,7 +199,7 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
 
 CesiumJS is a large and complex library. In additional to JavaScript modules, it includes static assets such as CSS, image, and json files. It also includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. We’ll need to configure some additional options to use it with webpack.
 
-First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized, which gives us less flexibility.
+First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized in the built version, which gives us less flexibility.
 
 ## Install CesiumJS
 1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`. Install the [CopyWebpackPluigin](https://webpack.js.org/plugins/copy-webpack-plugin/) module from npm using the command `npm install copy-webpack-plugin --save-dev`.
