@@ -383,4 +383,4 @@ For a tour of CesiumJS feature to include in your new app, see the Cesium Worksh
 
 Explore demos in Sandcastle and see the CesiumJS Documentation.
 
-To learn more about webpack, take a look at webpack Concepts, or dive into the Documentation.
+Want to learn more about webpack? Take a look at webpack [Concepts](https://webpack.js.org/concepts/), or dive into the [webpack documentation](https://webpack.js.org/configuration/).
