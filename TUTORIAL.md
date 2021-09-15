@@ -314,7 +314,7 @@ module.exports = {
 ```
 
 ## Incorporate CesiumJS
-1. Updated `index.js` with CesiumJS starter code:
+1. Update `index.js` with CesiumJS starter code:
 ```
 import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "../node_modules/cesium"
 import "../node_modules/cesium/Build/Cesium/Widgets/widgets.css";
