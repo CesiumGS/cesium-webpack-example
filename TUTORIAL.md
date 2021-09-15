@@ -203,7 +203,7 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 
 ## Install CesiumJS
 1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`. Install the [CopyWebpackPlugin](https://webpack.js.org/plugins/copy-webpack-plugin/) module from npm using the command `npm install copy-webpack-plugin --save-dev`.
-2. Update `sourcePrefix` to tell CesiumJS that the version of AMD webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. In addition, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like
+2. Update `sourcePrefix` to tell CesiumJS that the version of AMD that webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. Then, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like:
 ```
 // The path to the CesiumJS source code
 const cesiumSource = 'node_modules/cesium/Source';
