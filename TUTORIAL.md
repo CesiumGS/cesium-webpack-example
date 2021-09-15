@@ -166,7 +166,7 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
 
 ## Run the development server
 1. We will be using a [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve a development build and see our application in action. Run `npm install --save-dev webpack-dev-server`.
-2. Add a `start` script to `package.json`. This script should run the development server. Be sure to set the config file via the `--config` flag and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like
+2. Add a `start` script to `package.json`. This script will run the development server. Be sure to set the config file via the `--config` flag, and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like:
 ```
 {
   "name": "cesiumjs-webpack-tutorial",
