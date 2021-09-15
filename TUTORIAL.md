@@ -127,7 +127,7 @@ module.exports = {
   }
 ```
 
-If done correctly, `package.json` should look something like this
+If done correctly, `package.json` should now resemble the code below. Note that this json file will vary based on your selections in step 3 of the **Initialize an app with npm** section.
 ```
 {
   "name": "cesiumjs-webpack-tutorial",
