@@ -150,7 +150,7 @@ If done correctly, `package.json` should now resemble the code below. Note that 
 ```
 
 2. Run the command `npm run build`. Install CLI for webpack if necessary. 
-3. Ensure that there are no errors and your output looks something like
+3. Ensure that there are no errors and your output looks something like:
 ```
 $ npm run build
 
