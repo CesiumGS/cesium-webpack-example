@@ -190,7 +190,7 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
   }
 }
 ```
-3. Run `npm start` and open http://localhost:8080/ in a web browser.
+3. Run `npm start` and open [http://localhost:8080/](http://localhost:8080/) in a web browser.
 4. Ensure that you see Hello World!
 
 ![South San Francisco](./screenshots/hw.png)
