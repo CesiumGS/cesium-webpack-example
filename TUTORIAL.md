@@ -377,7 +377,7 @@ Please note that source maps are not recommended for production code.
 
 ## Additional Resources
 
-The official cesium-webpack-example  repo contains the minimal webpack configuration, the hello world code covered in this tutorial, and instructions for optional code configurations.
+The official [cesium-webpack-example repository](https://github.com/CesiumGS/cesium-webpack-example) contains the minimal webpack configuration, the hello world code covered in this tutorial, and instructions for optional code configurations.
 
 For a tour of CesiumJS feature to include in your new app, see the Cesium Workshop Tutorial.
 
