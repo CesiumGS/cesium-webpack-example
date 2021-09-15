@@ -149,7 +149,6 @@ If done correctly, `package.json` should now resemble the code below. Note that 
 }
 ```
 
-Please note that details of this json file will vary based on your selections in step 3 of **Initialize an app with npm**.
 2. Run the command `npm run build`. Install CLI for webpack if necessary. 
 3. Ensure that there are no errors and your output looks something like
 ```
