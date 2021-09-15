@@ -12,7 +12,7 @@ In this tutorial, we will build a simple web app from the ground up using webpac
 ## Initialize an app with npm
 
 1. Create a new directory for your app.
-2. Open a console window and navigate to the directory
+2. Open a console window and navigate to the directory.
 3. Run `npm init` and enter in the requested details about your application. If you are unsure about any prompts, press `Enter` to use the default value. You can modify these details at any point in the `package.json` file that `npm init` creates.
 
 ## Create the app code
