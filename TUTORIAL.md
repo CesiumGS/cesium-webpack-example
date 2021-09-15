@@ -60,7 +60,7 @@ module.exports = {
 ```
 In this code, `context` specifies the base path for your files. `entry` is used to specify bundles and `src/index.js` is our entry point. Webpack will output the bundle `app.js` to the `dist` folder, which webpack will create at runtime.
 4. In order to load CSS and other asset files with webpack, you'll need to install some [loaders](https://webpack.js.org/concepts/#loaders). Install the [style-loader](https://webpack.js.org/loaders/style-loader/#src/components/Sidebar/Sidebar.jsx), [css-loader](https://webpack.js.org/loaders/css-loader/), and [url-loader](https://webpack.js.org/loaders/url-loader/) using `npm install --save-dev style-loader css-loader url-loader`. Feel free to install any other loaders you may need in the future. Loaders can be installed at any point during this process.
-5. Update `webpack.config.js` by adding two `module.rules`. The first rule should support CSS files and the second rule should support other static files. For each rule, define `test` for the types of files to load and `use` to specify the list of loaders. `webpack.config.js` should look something like
+5. Update `webpack.config.js` by adding two `module.rules`. The first rule will support CSS files and the second rule will support other static files. For each rule, define `test` for the types of files to load and `use` to specify the list of loaders. Your `webpack.config.js` should resemble the following:
 ```
 const path = require('path');
 const webpack = require('webpack');
