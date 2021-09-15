@@ -253,7 +253,7 @@ module.exports = {
 ```
 
 ## Manage CesiumJS static files
-1. Now, we must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. Use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this run the command `npm install --save-dev copy-webpack-plugin` and updated the plugins array in `webpack.config.js`. `webpack.config.js` should now look like
+1. Now, we must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. You will use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this, run the command `npm install --save-dev copy-webpack-plugin` and update the plugins array in `webpack.config.js`. Your `webpack.config.js` should now look like:
 ```
 // The path to the CesiumJS source code
 const cesiumSource = 'node_modules/cesium/Source';
