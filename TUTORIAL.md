@@ -354,7 +354,7 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 </html>
 ```
 3. Run the command `npm run build`. Ensure that the project is built correctly.
-4. Run `npm start` and open http://localhost:8080/ in a web browser to see the CesiumJS viewer.
+4. Run `npm start` and open [http://localhost:8080/](http://localhost:8080/) in a web browser to see the CesiumJS viewer.
 
 ![South San Francisco](./screenshots/ssf2.png)
 
