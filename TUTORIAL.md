@@ -341,7 +341,7 @@ viewer.camera.flyTo({
 });
 ```
 This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrain, and moves the `Camera` to San Francisco. 
-2. Update `index.html` with the CesiumContainer
+2. Update `index.html` with the `CesiumContainer`.
 ```
 <!DOCTYPE html>
 <html lang="en">
