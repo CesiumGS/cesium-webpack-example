@@ -8,24 +8,6 @@
     "name": "Cesium GS, Inc.",
     "url": "https://cesium.com"
   },
-  "contributors": [
-    {
-      "name": "Sam Rothstein",
-      "url": "https://github.com/srothst1"
-    },
-    {
-      "name": "Alex Gallegos",
-      "url": "https://github.com/argallegos"
-    },
-    {
-      "name": "Gabby Getz",
-      "url": "https://github.com/ggetz"
-    },
-    {
-      "name": "Eli Bogomolny",
-      "url": "https://github.com/ebogo1"
-    }
-  ],
   "keywords": [
     "CesiumJS",
     "webpack",
