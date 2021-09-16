@@ -1,6 +1,6 @@
 # CesiumJS and Webpack
 
-[Webpack](https://webpack.js.org/) is a popular and powerful tool for bundling JavaScript modules. It allows developers to structure their code and assets in an intuitive way and to load different kinds of files as needed with simple `require` statements. When building, it will trace code dependencies and pack these modules into one or more bundles that are loaded by the web browser.
+[Webpack](https://webpack.js.org/) is a popular and powerful tool for bundling JavaScript modules. It allows developers to structure their code and assets in an intuitive way and to load different kinds of files as needed with simple require statements. When building, it will trace code dependencies and pack these modules into one or more bundles that are loaded by the web browser.
 
 In this tutorial, we will build a simple web app from the ground up using webpack, and then cover the steps to integrate the [Cesium npm module](https://www.npmjs.com/package/cesium). This is a good place to start if you’d like to use CesiumJS to develop a web application. If you’re new to Cesium and are looking to learn to build your first sample app, take a look at our [Getting Started Tutorial](https://cesium.com/learn/cesiumjs-learn/cesiumjs-quickstart/).
 
@@ -58,9 +58,9 @@ module.exports = {
     }
 };
 ```
-In this code, `context` specifies the base path for your files. `entry` is used to specify bundles and `src/index.js` is our entry point. Webpack will output the bundle `app.js` to the `dist` folder, which webpack will create at runtime.
-4. In order to load CSS and other asset files with webpack, you'll need to install some [loaders](https://webpack.js.org/concepts/#loaders). Install the [style-loader](https://webpack.js.org/loaders/style-loader/#src/components/Sidebar/Sidebar.jsx), [css-loader](https://webpack.js.org/loaders/css-loader/), and [url-loader](https://webpack.js.org/loaders/url-loader/) using `npm install --save-dev style-loader css-loader url-loader`. Feel free to install any other loaders you may need in the future. Loaders can be installed at any point during this process.
-5. Update `webpack.config.js` by adding two `module.rules`. The first rule will support CSS files and the second rule will support other static files. For each rule, define `test` for the types of files to load and `use` to specify the list of loaders. Your `webpack.config.js` should resemble the following:
+In this code, `context` specifies the base path for your files. `entry` is used to specify bundles and `src/index.js` is our entry point. Webpack will output the bundel `app.js` to the folder `dist`, that webpack will create at runtime.
+4. Webpack loads everything like a module. [loaders](https://webpack.js.org/concepts/#loaders) are used to load CSS and other asset files. Install the [style-loader](https://webpack.js.org/loaders/style-loader/#src/components/Sidebar/Sidebar.jsx), [css-loader](https://webpack.js.org/loaders/css-loader/), and [url-loader](https://webpack.js.org/loaders/url-loader/) using `npm install --save-dev style-loader css-loader url-loader`. Feel free to install any other loaders you may need in the future. Loaders can be installed at any point during this process.
+5. Update `webpack.config.js` by adding two `module.rules`. The first rule should support CSS files and the second rule should support other static files. For each rule, define `test` for the types of files to load and `use` to specify the list of loaders. `webpack.config.js` should look something like
 ```
 const path = require('path');
 const webpack = require('webpack');
@@ -85,8 +85,8 @@ module.exports = {
     }
 };
 ```
-6. To define `index.html` and inject our bundle into that page, we will be using a webpack [plugin](https://webpack.js.org/concepts/#plugins) called [html-webpack-plugin](https://webpack.js.org/concepts/#plugins). Use the command `npm install --save-dev html-webpack-plugin` to install this plugin.
-7. Require html-webpack-plugin in `webpack.config.js` by adding it to the `plugins` section. Next, pass `src/index.html` as our `template`. Finally, specify the mode option for webpack by adding `mode: 'development'` to `webpack.config.js`. Your `webpack.config.js` should now resemble the following:
+6. To define `index.html` and inject our bundle into that page we will be using a webpack [plugin](https://webpack.js.org/concepts/#plugins) called [html-webpack-plugin](https://webpack.js.org/concepts/#plugins). Use the command `npm install --save-dev html-webpack-plugin` to install the necessary plugin.
+7. Require html-webpack-plugin in `webpack.config.js` by adding it to the `plugins` section. Next, pass `src/index.html` as our `template`. Finally, specify the mode option for webpack by adding `mode: 'development'` to `webpack.config.js`.`webpack.config.js` should now look something like
 ```
 const path = require('path');
 const webpack = require('webpack');
@@ -127,7 +127,7 @@ module.exports = {
   }
 ```
 
-If done correctly, `package.json` should now resemble the code below. Note that this json file will vary based on your selections in step 3 of the **Initialize an app with npm** section.
+If done correctly, `package.json` should look something like this
 ```
 {
   "name": "cesiumjs-webpack-tutorial",
@@ -149,8 +149,9 @@ If done correctly, `package.json` should now resemble the code below. Note that 
 }
 ```
 
+Please note that details of this json file will vary based on your selections in step 3 of **Initialize an app with npm**.
 2. Run the command `npm run build`. Install CLI for webpack if necessary. 
-3. Ensure that there are no errors and your output looks something like:
+3. Ensure that there are no errors and your output looks something like
 ```
 $ npm run build
 
@@ -166,7 +167,7 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
 
 ## Run the development server
 1. We will be using a [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve a development build and see our application in action. Run `npm install --save-dev webpack-dev-server`.
-2. Add a `start` script to `package.json`. This script will run the development server. Be sure to set the config file via the `--config` flag, and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like:
+2. Add a `start` script to `package.json`. This script should run the development server. Be sure to set the config file via the `--config` flag and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like
 ```
 {
   "name": "cesiumjs-webpack-tutorial",
@@ -190,20 +191,20 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
   }
 }
 ```
-3. Run `npm start` and open [http://localhost:8080/](http://localhost:8080/) in a web browser.
-4. You should now see the text "Hello World!" on the page.
+3. Run `npm start` and open http://localhost:8080/ in a web browser.
+4. Ensure that you see Hello World!
 
 ![South San Francisco](./screenshots/hw.png)
 
 ## Add CesiumJS to a webpack app
 
-CesiumJS is a large and complex library. In additional to JavaScript modules, it includes static assets such as CSS, image, and json files. It also includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. We’ll need to configure some additional options to use it with webpack.
+CesiumJS is a large and complex library. In additional to JavaScript modules, it also includes static assets such as CSS, image, and json files. It includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. We’ll need to configure some additional options to use it with webpack.
 
-First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized in the built version, which gives us less flexibility.
+First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized, which gives us less flexibility.
 
 ## Install CesiumJS
-1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`. Install the [CopyWebpackPlugin](https://webpack.js.org/plugins/copy-webpack-plugin/) module from npm using the command `npm install copy-webpack-plugin --save-dev`.
-2. Update `sourcePrefix` to tell CesiumJS that the version of AMD that webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. Then, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like:
+1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`. Install the [CopyWebpackPluigin](https://webpack.js.org/plugins/copy-webpack-plugin/) module from npm using the command `npm install copy-webpack-plugin --save-dev`.
+2. Update `sourcePrefix` to tell CesiumJS that the version of AMD webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. In addition, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like
 ```
 // The path to the CesiumJS source code
 const cesiumSource = 'node_modules/cesium/Source';
@@ -253,7 +254,7 @@ module.exports = {
 ```
 
 ## Manage CesiumJS static files
-1. Now, we must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. You will use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this, run the command `npm install --save-dev copy-webpack-plugin` and update the plugins array in `webpack.config.js`. Your `webpack.config.js` should now look like:
+1. Now, we must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. Use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this run the command `npm install --save-dev copy-webpack-plugin` and updated the plugins array in `webpack.config.js`. `webpack.config.js` should now look like
 ```
 // The path to the CesiumJS source code
 const cesiumSource = 'node_modules/cesium/Source';
@@ -314,7 +315,7 @@ module.exports = {
 ```
 
 ## Incorporate CesiumJS
-1. Update `index.js` with CesiumJS starter code:
+1. Updated `index.js` with CesiumJS starter code:
 ```
 import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "../node_modules/cesium"
 import "../node_modules/cesium/Build/Cesium/Widgets/widgets.css";
@@ -341,7 +342,7 @@ viewer.camera.flyTo({
 });
 ```
 This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrain, and moves the `Camera` to San Francisco. 
-2. Update `index.html` with the `CesiumContainer`.
+2. Update `index.html` with the CesiumContainer
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -354,11 +355,11 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 </html>
 ```
 3. Run the command `npm run build`. Ensure that the project is built correctly.
-4. Run `npm start` and open [http://localhost:8080/](http://localhost:8080/) in a web browser to see the CesiumJS viewer.
+4. Run `npm start` and open http://localhost:8080/ in a web browser to see the CesiumJS viewer.
 
 ![South San Francisco](./screenshots/ssf2.png)
 
-Copy and paste your favorite Sandcastle example. Need inspiration? Try the [Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo.
+Copy and paste your favorite Sandcastle example. For example, [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo makes for a fun demo.
 
 ![South San Francisco](./screenshots/fw.png)
 
@@ -376,10 +377,8 @@ Please note that source maps are not recommended for production code.
 
 ## Additional Resources
 
-The official [cesium-webpack-example repository](https://github.com/CesiumGS/cesium-webpack-example) contains the minimal webpack configuration, the hello world code covered in this tutorial, and instructions for optional code configurations.
+The official cesium-webpack-example  repo contains the minimal webpack configuration, the hello world code covered in this tutorial, and instructions for optional code configurations.
 
-For a tour of CesiumJS feature to include in your new app, see the Cesium Workshop Tutorial.
+Learn CesiumJS with our [CesiumJS tutorial](https://cesium.com/learn/cesiumjs-learn/) and explore [Sandcastle](https://sandcastle.cesium.com/) demos to see CesiumJS in action.
 
-Explore demos in Sandcastle and see the CesiumJS Documentation.
-
-Want to learn more about webpack? Take a look at webpack [Concepts](https://webpack.js.org/concepts/), or dive into the [webpack documentation](https://webpack.js.org/configuration/).
+To learn more about webpack, take a look at the [webpack guides](https://webpack.js.org/guides/getting-started/), or dive into the [API](https://webpack.js.org/api/).
