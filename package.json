@@ -1,14 +1,23 @@
 {
-  "name": "cesiumjs-webpack-tutorial",
+  "name": "cesiumjs-webpack-example",
   "version": "1.0.0",
-  "description": "Getting started with CesiumJS and Webpack.",
+  "description": "The minimal recomended setup for an app using Cesium with Webpack.",
   "main": "index.js",
+  "keywords": [
+    "cesium",
+    "webpack",
+    "example"
+  ],
+  "author": {
+    "name": "Cesium GS, Inc.",
+    "url": "https://cesium.com"
+  },
+  "homepage": "https://cesiumjs.org",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "node_modules/.bin/webpack --config webpack.config.js",
     "start": "node_modules/.bin/webpack serve --config webpack.config.js --open"
   },
-  "author": "Sam Rothstein",
-  "license": "ISC",
   "devDependencies": {
     "cesium": "^1.84.0",
     "copy-webpack-plugin": "^9.0.1",
