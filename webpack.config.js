@@ -22,9 +22,9 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // CesiumJS module name
             cesium: path.resolve(__dirname, cesiumSource)
-        }
+        },
+        mainFiles: ['module', 'main', 'Cesium']
     },
     module: {
         rules: [{
