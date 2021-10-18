@@ -9,6 +9,7 @@
     "url": "https://cesium.com"
   },
   "keywords": [
+    "cesium",
     "CesiumJS",
     "webpack",
     "example"
