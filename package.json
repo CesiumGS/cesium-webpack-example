@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "es6": "^0.0.7",
+    "querystring-es3": "^0.2.1",
     "release": "^6.3.0",
     "webpack": "^5.51.1"
   }
