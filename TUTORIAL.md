@@ -37,6 +37,16 @@ This will serve as a boilerplate HTML page to get us started.
 console.log('Hello World!');
 ```
 This will serve as our boilerplate JavaScript code.
+5. Create the file `src/css/main.css` and add the following css code
+```
+html, body, #cesiumContainer {	
+    width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+```
 
 ## Install and configure webpack
 1. Install webpack by running `npm install --save-dev webpack`. The files `package-lock.json` and `package.json` should appear in your main directory. You should also see a new folder in your main directory named `node_modules`.
@@ -232,9 +242,9 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // CesiumJS module name
             cesium: path.resolve(__dirname, cesiumSource)
-        }
+        },
+        mainFiles: ['module', 'main', 'Cesium']
     },
     module: {
         rules: [{
@@ -281,9 +291,9 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // CesiumJS module name
             cesium: path.resolve(__dirname, cesiumSource)
-        }
+        },
+        mainFiles: ['module', 'main', 'Cesium']
     },
     module: {
         rules: [{
@@ -318,8 +328,8 @@ module.exports = {
 ## Incorporate CesiumJS
 1. Updated `index.js` with CesiumJS starter code:
 ```
-import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "../node_modules/cesium"
-import "../node_modules/cesium/Build/Cesium/Widgets/widgets.css";
+import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "cesium";
+import "cesium/Widgets/widgets.css";
 
 // Your access token can be found at: https://cesium.com/ion/tokens.
 // This is the default access token from your ion account
