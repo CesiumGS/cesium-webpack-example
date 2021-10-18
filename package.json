@@ -36,7 +36,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "cesiumjs": "^1.10.0",
     "es6": "^0.0.7",
     "release": "^6.3.0",
     "webpack": "^5.51.1"
