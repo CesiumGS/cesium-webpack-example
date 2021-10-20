@@ -33,9 +33,7 @@
     "style-loader": "^3.2.1",
     "url-loader": "^4.1.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.11.2",
     "es6": "^0.0.7",
     "querystring-es3": "^0.2.1",
     "release": "^6.3.0",
