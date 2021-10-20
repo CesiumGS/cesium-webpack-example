@@ -24,7 +24,7 @@ module.exports = {
         alias: {
             cesium: path.resolve(__dirname, cesiumSource)
         },
-        mainFiles: ['module', 'main', 'Cesium']
+        mainFiles: ['index', 'Cesium']
     },
     module: {
         rules: [{
