@@ -2,7 +2,7 @@
 
 [Webpack](https://webpack.js.org/) is a popular and powerful tool for bundling JavaScript modules. It allows developers to structure their code and assets in an intuitive way and to load different kinds of files as needed with simple require statements. When building, it will trace code dependencies and pack these modules into one or more bundles that are loaded by the web browser.
 
-In this tutorial, we will build a simple web app from the ground up using webpack, and then cover the steps to integrate the [Cesium npm module](https://www.npmjs.com/package/cesium). This is a good place to start if you’d like to use CesiumJS to develop a web application. If you’re new to Cesium and are looking to learn to build your first sample app, take a look at our [Getting Started Tutorial](https://cesium.com/learn/cesiumjs-learn/cesiumjs-quickstart/).
+In this tutorial, you will build a simple web app from the ground up using webpack, and then cover the steps to integrate the [Cesium npm module](https://www.npmjs.com/package/cesium). This is a good place to start if you’d like to use CesiumJS to develop a web application. If you’re new to Cesium and are looking to learn to build your first sample app, take a look at our [Getting Started Tutorial](https://cesium.com/learn/cesiumjs-learn/cesiumjs-quickstart/).
 
 ## Prerequisites
 - A basic understanding of the command line, JavaScript, and web development.
@@ -17,7 +17,7 @@ In this tutorial, we will build a simple web app from the ground up using webpac
 
 ## Create the app code
 
-1. Create a `src` directory for your app code. When we build the app, webpack will automatically produce distribution files in a directory named `dist`.
+1. Create a `src` directory for your app code. When you build the app, webpack will automatically produce distribution files in a directory named `dist`.
 2. Create the files `index.html` and `index.js` in the `src` directory added in step 1.
 3. Add the following code to `src/index.html`
 ```
@@ -97,7 +97,7 @@ module.exports = {
     }
 };
 ```
-6. To define `index.html` and inject our bundle into that page we will be using a webpack [plugin](https://webpack.js.org/concepts/#plugins) called [html-webpack-plugin](https://webpack.js.org/concepts/#plugins). Use the command `npm install --save-dev html-webpack-plugin` to install the necessary plugin.
+6. To define `index.html` and inject our bundle into that page you will be using a webpack [plugin](https://webpack.js.org/concepts/#plugins) called [html-webpack-plugin](https://webpack.js.org/concepts/#plugins). Use the command `npm install --save-dev html-webpack-plugin` to install the necessary plugin.
 7. Require html-webpack-plugin in `webpack.config.js` by adding it to the `plugins` section. Next, pass `src/index.html` as our `template`. Finally, specify the mode option for webpack by adding `mode: 'development'` to `webpack.config.js`.`webpack.config.js` should now look something like
 ```
 const path = require('path');
@@ -178,7 +178,7 @@ webpack 5.50.0 compiled successfully in 86 ms
 Please note that the `app.js` bundle and `index.html` file should be added to the `dist` folder.
 
 ## Run the development server
-1. We will be using a [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve a development build and see our application in action. Run `npm install --save-dev webpack-dev-server`.
+1. You will be using a [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve a development build and see our application in action. Run `npm install --save-dev webpack-dev-server`.
 2. Add a `start` script to `package.json`. This script should run the development server. Be sure to set the config file via the `--config` flag and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like
 ```
 {
@@ -210,7 +210,7 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
 
 ## Add CesiumJS to a webpack app
 
-CesiumJS is a large and complex library. In additional to JavaScript modules, it also includes static assets such as CSS, image, and json files. It includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. We’ll need to configure some additional options to use it with webpack.
+CesiumJS is a large and complex library. In additional to JavaScript modules, it also includes static assets such as CSS, image, and json files. It includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. You will need to configure some additional options to use it with webpack.
 
 First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized, which gives us less flexibility.
 
@@ -265,7 +265,7 @@ module.exports = {
 ```
 
 ## Manage CesiumJS static files
-1. Now, we must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. Use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this run the command `npm install --save-dev copy-webpack-plugin` and updated the plugins array in `webpack.config.js`. `webpack.config.js` should now look like
+1. Now, you must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. Use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this run the command `npm install --save-dev copy-webpack-plugin` and updated the plugins array in `webpack.config.js`. `webpack.config.js` should now look like
 ```
 // The path to the CesiumJS source code
 const cesiumSource = 'node_modules/cesium/Source';
