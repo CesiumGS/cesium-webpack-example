@@ -10,13 +10,13 @@ You'll learn how to:
 - A basic understanding of the command line, JavaScript, and web development.
 - Node.js installed. We recommend using the latest LTS version.
 
-## Initialize an app with npm
+## Initialize an App with npm
 
 1. Create a new directory for your app.
 2. Open a console window and navigate to the directory.
 3. Run `npm init` and enter in the requested details about your application. If you are unsure about any prompts, press `Enter` to use the default value. You can modify these details at any point in the `package.json` file that `npm init` creates.
 
-## Create the app code
+## Create the App Code
 
 1. Create a `src` directory for your app code. When you build the app, webpack will automatically produce distribution files in a directory named `dist`.
 2. Create the files `index.html` and `index.js` in the `src` directory added in step 1.
@@ -49,7 +49,7 @@ html, body, #cesiumContainer {
 }
 ```
 
-## Install and configure webpack
+## Install and Configure Webpack
 1. Install webpack by running `npm install --save-dev webpack`. The files `package-lock.json` and `package.json` should appear in your main directory. You should also see a new folder in your main directory named `node_modules`.
 2. Create the file `webpack.config.js` in your main directory. 
 3. Define our webpack [configuration](https://webpack.js.org/concepts/configuration/) object by adding the following code to `webpack.config.js`
@@ -132,7 +132,7 @@ module.exports = {
 };
 ```
 
-## Bundle the app
+## Bundle the App
 1. In `package.json`, define the scripts that we can call with `npm`. Add the `build` command.
 ```
   "scripts": {
@@ -178,7 +178,7 @@ webpack 5.50.0 compiled successfully in 86 ms
 ```
 Please note that the `app.js` bundle and `index.html` file should be added to the `dist` folder.
 
-## Run the development server
+## Run the Development Server
 1. You will be using a [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve a development build and see our application in action. Run `npm install --save-dev webpack-dev-server`.
 2. Add a `start` script to `package.json`. This script should run the development server. Be sure to set the config file via the `--config` flag and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like
 ```
@@ -209,7 +209,7 @@ Please note that the `app.js` bundle and `index.html` file should be added to th
 
 ![South San Francisco](./screenshots/hw.png)
 
-## Add CesiumJS to a webpack app
+## Add CesiumJS to a Webpack App
 
 CesiumJS is a large and complex library. In additional to JavaScript modules, it also includes static assets such as CSS, image, and json files. It includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. You will need to configure some additional options to use it with webpack.
 
@@ -265,7 +265,7 @@ module.exports = {
 };
 ```
 
-## Manage CesiumJS static files
+## Manage CesiumJS Static Files
 1. Now, you must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. Use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this run the command `npm install --save-dev copy-webpack-plugin` and updated the plugins array in `webpack.config.js`. `webpack.config.js` should now look like
 ```
 // The path to the CesiumJS source code
@@ -376,11 +376,11 @@ Copy and paste your favorite Sandcastle example. For example, [The Particle Syst
 
 ![South San Francisco](./screenshots/fw.png)
 
-# Advanced webpack configurations and Resources
+# Advanced Webpack Configurations and Resources
 
 Webpack can be leveraged in many more ways to increase performance, decrease your bundle size, and perform additional or complex build steps. Here we’ll discuss a few configuration options relevant to using the CesiumJS library.
 
-## Enable source maps
+## Enable Source Maps
 
 Source maps allow webpack to trace errors back to the original content. They offer more or less detailed debugging information in exchange for compiling speed. We recommend setting `devtool` to the 'eval' option in `webpack.config.js`
 
