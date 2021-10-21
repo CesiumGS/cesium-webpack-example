@@ -327,7 +327,7 @@ module.exports = {
 };
 ```
 
-## Incorporate CesiumJS
+## Incorporate CesiumJS Into Your Application 
 
 1. Updated `index.js` with CesiumJS starter code:
 ```
