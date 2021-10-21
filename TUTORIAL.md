@@ -20,7 +20,7 @@ You'll learn how to:
 
 1. Create a `src` directory for your app code. When you build the app, webpack will automatically produce distribution files in a directory named `dist`.
 2. Create the files `index.html` and `index.js` in the `src` directory added in step 1.
-3. Add the following code to `src/index.html`
+3. Add the following code to `src/index.html`. This will serve as a boilerplate HTML page to get us started.
 ```
 <!DOCTYPE html>
 <html>
@@ -32,12 +32,12 @@ You'll learn how to:
   </body>
 </html>
 ```
-This will serve as a boilerplate HTML page to get us started.
-4. Add the following code to `src/index.js`
+
+4. Add the following code to `src/index.js`. This will serve as our boilerplate JavaScript code.
 ```
 console.log('Hello World!');
 ```
-This will serve as our boilerplate JavaScript code.
+
 5. Create the file `src/css/main.css` and add the following css code
 ```
 html, body, #cesiumContainer {	
