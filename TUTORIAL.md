@@ -174,7 +174,7 @@ asset index.html 376 bytes [emitted]
 ./src/index.js 28 bytes [built] [code generated]
 webpack 5.50.0 compiled successfully in 86 ms
 ```
-Please note that the `app.js` bundle and `index.html` file should be added to the `dist` folder.
+Please verify that the `app.js` bundle and `index.html` file are added to the `dist` folder.
 
 ## Run the Development Server
 
