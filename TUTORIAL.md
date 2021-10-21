@@ -374,7 +374,7 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 
 ![South San Francisco](./screenshots/southsanfrancisco2.png)
 
-Copy and paste your favorite Sandcastle example. For example, [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo makes for a fun demo.
+Feel free to copy and paste your favorite Sandcastle example. For example, many community members enjoy [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo.
 
 ![South San Francisco](./screenshots/fireworks.png)
 
