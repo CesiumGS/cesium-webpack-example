@@ -372,11 +372,11 @@ This code initializes the Cesium Viewer, adds Cesium OSM Buildings to the terrai
 3. Run the command `npm run build`. Ensure that the project is built correctly.
 4. Run `npm start` and open http://localhost:8080/ in a web browser to see the CesiumJS viewer.
 
-![South San Francisco](./screenshots/ssf2.png)
+![South San Francisco](./screenshots/southsanfrancisco2.png)
 
 Copy and paste your favorite Sandcastle example. For example, [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo makes for a fun demo.
 
-![South San Francisco](./screenshots/fw.png)
+![South San Francisco](./screenshots/fireworks.png)
 
 # Advanced Webpack Configurations and Resources
 
