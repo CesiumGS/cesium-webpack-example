@@ -161,7 +161,7 @@ If done correctly, `package.json` should look something like this
 ```
 
 Please note that details of this json file will vary based on your selections in [step 3](#initialize-an-app-with-npm) of **Initialize an App with npm**.
-2. Run the command `npm run build`. Install CLI for webpack if necessary. webpack CLI can be installed using the command `npm install --save-dev webpack-cli`.
+2. Run the command `npm run build`. Install CLI for webpack if necessary. Webpack CLI can be installed using the command `npm install --save-dev webpack-cli`.
 3. Ensure that there are no errors and your output looks something like
 ```
 $ npm run build
