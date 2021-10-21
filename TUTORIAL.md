@@ -204,7 +204,7 @@ Please verify that the `app.js` bundle and `index.html` file are added to the `d
 }
 ```
 3. Run `npm start` and open http://localhost:8080/ in a web browser.
-4. Ensure that you see Hello World!
+4. Verify that you see Hello World!
 
 ![South San Francisco](./screenshots/hw.png)
 
