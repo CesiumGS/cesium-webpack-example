@@ -210,7 +210,7 @@ Please verify that the `app.js` bundle and `index.html` file are added to the `d
 
 ## Add CesiumJS to a Webpack App
 
-CesiumJS is a large and complex library. In additional to JavaScript modules, it also includes static assets such as CSS, image, and json files. It includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. You will need to configure some additional options to use it with webpack.
+CesiumJS is an open source JavaScript library for creating world-class 3D globes and maps. Thus, it is a rather large and complex library. In additional to JavaScript modules, it also includes static assets such as CSS, image, and json files. It includes web worker files to perform intensive calculations in separate threads. Unlike traditional npm modules, CesiumJS does not define an entry point because of the diverse ways in which the library is used. You will need to configure some additional options to use it with webpack.
 
 First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized, which gives us less flexibility.
 
