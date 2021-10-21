@@ -386,7 +386,7 @@ Webpack can be leveraged in many more ways to increase performance, decrease you
 
 Source maps allow webpack to trace errors back to the original content. They offer more or less detailed debugging information in exchange for compiling speed. We recommend setting `devtool` to the 'eval' option in `webpack.config.js`
 
-` devtool: 'eval' `
+``` devtool: 'eval' ```
 
 Please note that source maps are not recommended for production code.
 
