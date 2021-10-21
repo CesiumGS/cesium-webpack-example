@@ -8,7 +8,6 @@ You'll learn how to:
 
 ## Prerequisites
 - A basic understanding of the command line, JavaScript, and web development.
-- An IDE or code editor. Developers on the Cesium team members use Visual Studio Code, but a minimal code editor such as Sublime Text will also work.
 - Node.js installed. We recommend using the latest LTS version.
 
 ## Initialize an app with npm
