@@ -1,8 +1,10 @@
 # CesiumJS and Webpack
 
-[Webpack](https://webpack.js.org/) is a popular and powerful tool for bundling JavaScript modules. It allows developers to structure their code and assets in an intuitive way and to load different kinds of files as needed with simple require statements. When building, it will trace code dependencies and pack these modules into one or more bundles that are loaded by the web browser.
+[Webpack](https://webpack.js.org/) is a popular and powerful tool for bundling JavaScript modules. It allows developers to structure their code and assets in an intuitive way and to load different kinds of files as needed with simple require statements. When building, it will trace code dependencies and pack these modules into one or more bundles that are loaded by the web browser. This tutorial is a good place to start if you’d like to use CesiumJS to develop a more advanced web application. If you’re new to Cesium and are looking to learn to build your first sample app, take a look at our [Getting Started Tutorial](https://cesium.com/learn/cesiumjs-learn/cesiumjs-quickstart/).
 
-In this tutorial, you will build a simple web app from the ground up using webpack, and then cover the steps to integrate the [Cesium npm package](https://www.npmjs.com/package/cesium). This is a good place to start if you’d like to use CesiumJS to develop a web application. If you’re new to Cesium and are looking to learn to build your first sample app, take a look at our [Getting Started Tutorial](https://cesium.com/learn/cesiumjs-learn/cesiumjs-quickstart/).
+You'll learn how to:
+- Build a simple web app from the ground up using webpack
+- Integrate the [Cesium npm package](https://www.npmjs.com/package/cesium) into your web app
 
 ## Prerequisites
 - A basic understanding of the command line, JavaScript, and web development.
