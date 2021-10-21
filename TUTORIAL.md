@@ -7,6 +7,7 @@ You'll learn how to:
 - Integrate the [Cesium npm package](https://www.npmjs.com/package/cesium) into your web app
 
 ## Prerequisites
+
 - A basic understanding of the command line, JavaScript, and web development.
 - Node.js installed. We recommend using the latest LTS version.
 
@@ -129,6 +130,7 @@ module.exports = {
 ```
 
 ## Bundle the App
+
 1. In `package.json`, define the scripts that we can call with `npm`. Add the `build` command.
 ```
   "scripts": {
@@ -175,6 +177,7 @@ webpack 5.50.0 compiled successfully in 86 ms
 Please note that the `app.js` bundle and `index.html` file should be added to the `dist` folder.
 
 ## Run the Development Server
+
 1. You will be using a [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve a development build and see our application in action. Run `npm install --save-dev webpack-dev-server`.
 2. Add a `start` script to `package.json`. This script should run the development server. Be sure to set the config file via the `--config` flag and use the `--open` flag to open the application in a a browser upon execution of the command. `package.json` should look something like
 ```
@@ -212,6 +215,7 @@ CesiumJS is a large and complex library. In additional to JavaScript modules, it
 First, define where CesiumJS is. This tutorial uses the source code, so webpack can include individual models and trace the dependencies. Alternatively, you can use the built (minified or unminified) version of CesiumJS. However, the modules are already combined and optimized, which gives us less flexibility.
 
 ## Install CesiumJS
+
 1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`.
 2. Update `sourcePrefix` to tell CesiumJS that the version of AMD webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. In addition, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like
 ```
@@ -262,6 +266,7 @@ module.exports = {
 ```
 
 ## Manage CesiumJS Static Files
+
 1. Now, you must make sure the static CesiumJS asset, widget, and web worker files are served and loaded correctly. Use `copy-webpack-plugin` to copy static files to the `dist` directory as part of the build process. To do this run the command `npm install --save-dev copy-webpack-plugin` and updated the plugins array in `webpack.config.js`. `webpack.config.js` should now look like
 ```
 // The path to the CesiumJS source code
@@ -323,6 +328,7 @@ module.exports = {
 ```
 
 ## Incorporate CesiumJS
+
 1. Updated `index.js` with CesiumJS starter code:
 ```
 import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "cesium";
