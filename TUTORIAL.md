@@ -375,7 +375,7 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 
    ![South San Francisco](./screenshots/southsanfrancisco2.png)
 
-Feel free to copy and paste your favorite Sandcastle example. For example, many community members enjoy [The Particle System Fireworks](https://sandcastle.cesium.com/?src=Particle%20System%20Fireworks.html) demo.
+Feel free to copy and paste your favorite Sandcastle example. For example, many community members enjoy the [Cesium OSM Buildings](https://sandcastle.cesium.com/?src=Cesium%20OSM%20Buildings.html) demo.
 
 # Advanced Webpack Configurations and Resources
 
