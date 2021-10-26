@@ -1,18 +1,24 @@
+import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "cesium";
+import "cesium/Widgets/widgets.css";
+import "../src/css/main.css"
 
-import { Cesium3DTileset, createWorldTerrain, IonResource, Viewer } from 'cesium';
-import "cesium/Build/Cesium/Widgets/widgets.css";
-import "./css/main.css";
+// Your access token can be found at: https://cesium.com/ion/tokens.
+// This is the default access token
+Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1OWUxNy1mMWZiLTQzYjYtYTQ0OS1kMWFjYmFkNjc5YzciLCJpZCI6NTc3MzMsImlhdCI6MTYyNzg0NTE4Mn0.XcKpgANiY19MC4bdFUXMVEBToBmqS8kuYpUlxJHYZxk';
 
-// This is simplified version of Cesium's Getting Started tutorial.
-// See https://cesium.com/docs/tutorials/getting-started/ for more details.
-
-var viewer = new Viewer('cesiumContainer', {
-    terrainProvider: createWorldTerrain()
+// Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
+const viewer = new Viewer('cesiumContainer', {
+  terrainProvider: createWorldTerrain()
 });
 
-var tileset = new Cesium3DTileset({
-    url: IonResource.fromAssetId(40866)
-});
+// Add Cesium OSM Buildings, a global 3D buildings layer.
+viewer.scene.primitives.add(createOsmBuildings());   
 
-viewer.scene.primitives.add(tileset);
-viewer.zoomTo(tileset);
+// Fly the camera to San Francisco at the given longitude, latitude, and height.
+viewer.camera.flyTo({
+  destination : Cartesian3.fromDegrees(-122.4175, 37.655, 400),
+  orientation : {
+    heading : Math.toRadians(0.0),
+    pitch : Math.toRadians(-15.0),
+  }
+});
