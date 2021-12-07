@@ -8,17 +8,17 @@ Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1O
 
 // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
 const viewer = new Viewer('cesiumContainer', {
-  terrainProvider: createWorldTerrain()
+    terrainProvider: createWorldTerrain()
 });
 
 // Add Cesium OSM Buildings, a global 3D buildings layer.
-viewer.scene.primitives.add(createOsmBuildings());   
+viewer.scene.primitives.add(createOsmBuildings());
 
 // Fly the camera to San Francisco at the given longitude, latitude, and height.
 viewer.camera.flyTo({
-  destination : Cartesian3.fromDegrees(-122.4175, 37.655, 400),
-  orientation : {
-    heading : Math.toRadians(0.0),
-    pitch : Math.toRadians(-15.0),
-  }
+    destination: Cartesian3.fromDegrees(-122.4175, 37.655, 400),
+    orientation: {
+        heading: Math.toRadians(0.0),
+        pitch: Math.toRadians(-15.0),
+    }
 });

@@ -20,13 +20,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/webpack --config webpack.config.js",
-    "start": "node_modules/.bin/webpack serve --config webpack.config.js --open"
+    "start": "webpack serve --config webpack.config.js --open --mode=development --node-env=development",
+    "build": "webpack --config webpack.config.js --mode=production --node-env=production"
   },
   "devDependencies": {
     "cesium": "^1.84.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
+    "del": "^6.0.0",
     "html-webpack-plugin": "^5.3.2",
     "style-loader": "^3.2.1",
     "url-loader": "^4.1.1",
