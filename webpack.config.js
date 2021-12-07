@@ -20,6 +20,7 @@ module.exports = (env, argv) => {
         isProduction: argv?.nodeEnv === 'production' || this.mode === 'production',
 
         baseDir: {
+            public: path.resolve('./public'),
             scripts: path.resolve('./src', 'build', 'scripts'),
             styles: path.resolve('./src', 'build', 'styles'),
             templates: path.resolve('./src', 'build', 'templates'),
@@ -43,12 +44,24 @@ module.exports = (env, argv) => {
     return {
         context: __dirname,
         entry: {
-            app: './src/index.js'
+            app: path.join(app.baseDir.scripts, 'index.js')
         },
         output: {
-            filename: 'app.js',
-            path: path.resolve(__dirname, 'dist'),
-            sourcePrefix: ''
+            // filename: 'app.js',
+            // path: path.resolve(__dirname, 'public'),
+            // sourcePrefix: ''
+
+            path: app.baseDir.public,
+
+            filename: (pathData) => {
+                return pathData.chunk.name === 'app'
+                    ? `js/[name].bundle.${app.isProduction ? 'min.js?[chunkhash]' : 'js'}`
+                    : `js/[name]/app.[name].bundle.${app.isProduction ? 'min.js?[chunkhash]' : 'js'}`;
+            },
+
+            chunkFilename: `js/[id].js?${app.isProduction ? '[chunkhash]' : ''}`,
+            assetModuleFilename: `img/[name].[ext]?${app.isProduction ? '[hash]' : ''}[query]`,
+            pathinfo: true,
         },
         amd: {
             // Enable webpack-friendly use of require in Cesium
@@ -71,14 +84,14 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: 'src/index.html'
+                template: path.join(app.baseDir.templates, 'app', 'index.html')
             }),
             // Copy Cesium Assets, Widgets, and Workers to a static directory
             new CopyWebpackPlugin({
                 patterns: [
-                    { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-                    { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-                    { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' }
+                    { from: path.join(cesiumSource, cesiumWorkers), to: 'js/Workers' },
+                    { from: path.join(cesiumSource, 'Assets'), to: 'js/Assets' },
+                    { from: path.join(cesiumSource, 'Widgets'), to: 'js/Widgets' }
                 ]
             }),
             new webpack.DefinePlugin({
@@ -86,7 +99,7 @@ module.exports = (env, argv) => {
                 CESIUM_BASE_URL: JSON.stringify('')
             })
         ],
-        mode: 'development',
-        devtool: 'eval',
+        mode: app.mode,
+        devtool: app.isProduction ? false : 'source-map',
     };
 };
