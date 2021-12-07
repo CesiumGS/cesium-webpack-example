@@ -53,7 +53,10 @@ module.exports = (env, argv) => {
 
             path: app.baseDir.public,
 
+            // Here I prefer the functional stem, because I can branch off the modules accordingly in the paths.
+            // For example for admin area etc.
             filename: (pathData) => {
+                //The module is called "app" by default
                 return pathData.chunk.name === 'app'
                     ? `js/[name].bundle.${app.isProduction ? 'min.js?[chunkhash]' : 'js'}`
                     : `js/[name]/app.[name].bundle.${app.isProduction ? 'min.js?[chunkhash]' : 'js'}`;
