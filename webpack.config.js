@@ -33,6 +33,9 @@ module.exports = {
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
             use: [ 'url-loader' ]
+        },  {
+            test: /\.wasm$/,
+            use: [ 'wasm-loader' ]
         }]
     },
     plugins: [
