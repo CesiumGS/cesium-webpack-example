@@ -21,7 +21,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "webpack serve --config webpack.config.js --open"
+    "start":"webpack serve --config webpack.config.js --open"
   },
   "devDependencies": {
     "cesium": "^1.84.0",
