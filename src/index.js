@@ -1,3 +1,9 @@
+import { Cartesian3 } from 'cesium';
+
+const cartesian = new Cartesian3(1,1,1);
+console.log(Cartesian3.magnitude(cartesian))
+
+/*
 import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "cesium";
 import "cesium/Widgets/widgets.css";
 import "../src/css/main.css"
@@ -22,3 +28,4 @@ viewer.camera.flyTo({
     pitch : Math.toRadians(-15.0),
   }
 });
+*/

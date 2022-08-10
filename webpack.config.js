@@ -33,6 +33,21 @@ module.exports = {
         }, {
             test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
             use: [ 'url-loader' ]
+        }, {
+            test: /\.js$/,
+            enforce: 'pre',
+            include: path.resolve(__dirname, 'node_modules/cesium/Source'),
+            sideEffects: false,
+            use: [
+                {
+                    loader: 'strip-pragma-loader',
+                    options: {
+                        pragmas: {
+                            debug: false
+                        }
+                    }
+                }
+            ]
         }]
     },
     plugins: [

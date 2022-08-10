@@ -28,6 +28,7 @@
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "strip-pragma-loader": "^1.0.1",
     "style-loader": "^3.2.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.51.1",
