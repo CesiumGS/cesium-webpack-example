@@ -4,54 +4,50 @@ A minimal recommended setup for an applications using [Cesium](https://cesium.co
 
 [![Build Status](https://travis-ci.org/CesiumGS/cesium-webpack-example.svg?branch=using-custom-loader)](https://travis-ci.org/CesiumGS/cesium-webpack-example)
 
-### Running this application
+## Running this application
 
-	npm install
-	npm start
+````sh
+npm install
+npm start
+````
 
 Navigate to `localhost:8080`.
 
-##### Available scripts
+### Available scripts
 
 * `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
 * `npm run build` - Runs a webpack build with `webpack.config.js`
-* `npm run release` - Runs an optimized webpack build with `webpack.release.config.js`
-* `npm run serve-release` - Runs an optimized webpack build with `webpack.release.config.js` and starts a development server
 
-##### Configurations
+## Requiring Cesium in your application
 
-We've included two webpack configuration files in this repository. `webpack.config.js` contains configuration for development while `webpack.release.config.js` contains an optimized configuration for production use.
+We recommend [importing named exports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) from the Cesium ES module, via the `import` keyword. This allows webpack to [tree shake](https://webpack.js.org/guides/tree-shaking/) your application automatically.
 
-### Requiring Cesium in your application
+### Import named modules from Cesium
 
-We recommend using Cesium as an [ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) module, via the `import` keyword.
+````js
+import { Color } from 'cesium';
+var c = Color.fromRandom();
+````
 
-#### Import named modules from Cesium
+### Import Cesium static asset files
 
-	import { Color } from 'cesium';
-	var c = Color.fromRandom();
+````js
+import "cesium/Build/Cesium/Widgets/widgets.css";
+````
 
-#### Import Cesium static asset files
-	
-	import "cesium/Build/Cesium/Widgets/widgets.css";
-
-### Treeshaking
-
-`webpack.release.config.js` enables tree-shaking of CesiumJS modules so that unused modules are not included in the production bundle. See Webpack's [Tree Shaking](https://webpack.js.org/guides/tree-shaking/) documentation for more details.
-
-##### Removing pragmas
+## Removing pragmas
 
 To remove pragmas such as a traditional Cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
 
 Install the plugin with npm,
 
-```
+````sh
 npm install strip-pragma-loader --save-dev
-```
+````
 
 and include the loader in `module.rules` with `debug` set to `false`.
 
-```
+````js
 rules: [{
 	test: /\.js$/,
 	enforce: 'pre',
@@ -65,7 +61,7 @@ rules: [{
 		}
 	}]
 }]
-```
+````
 
 ## Contributions
 
