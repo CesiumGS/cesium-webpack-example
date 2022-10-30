@@ -217,7 +217,7 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 ### Install CesiumJS
 
 1. Install the [Cesium](https://www.npmjs.com/package/cesium) module from npm using the command `npm install --save-dev cesium`.
-2. Update `sourcePrefix` to tell CesiumJS that the version of AMD webpack uses to evaluate `require` statements is not compliant with the standard `toUrl` function. In addition, add a `cesium` alias so we can reference it in our app code. After adding these changes, `webpack.config.js` should look like
+2. Add `sourcePrefix` to `output` compile multiline strings in Cesium. Redirect module requests when normal resolving fails using `fallback` as Webpack 5 no longer polyfiles Node.js core modules.
     ```js
     // The path to the CesiumJS source code
     const cesiumSource = 'node_modules/cesium/Source';
@@ -237,15 +237,9 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
             // Needed to compile multiline strings in Cesium
             sourcePrefix: ''
         },
-        amd: {
-            // Enable webpack-friendly use of require in Cesium
-            toUrlUndefined: true
-        },
         resolve: {
-            alias: {
-                cesium: path.resolve(__dirname, cesiumSource)
-            },
-            mainFiles: ['module', 'main', 'Cesium']
+            fallback: { "https": false, "zlib": false, "http": false, "url": false },
+            mainFiles: ['index', 'Cesium']
         },
         module: {
             rules: [{
@@ -287,15 +281,9 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
             path: path.resolve(__dirname, 'dist'),
             sourcePrefix: ''
         },
-        amd: {
-            // Enable webpack-friendly use of require in Cesium
-            toUrlUndefined: true
-        },
         resolve: {
-            alias: {
-                cesium: path.resolve(__dirname, cesiumSource)
-            },
-            mainFiles: ['module', 'main', 'Cesium']
+            fallback: { "https": false, "zlib": false, "http": false, "url": false },
+            mainFiles: ['index', 'Cesium']
         },
         module: {
             rules: [{
@@ -333,7 +321,7 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 
     ```js
     import { Ion, Viewer, createWorldTerrain, createOsmBuildings, Cartesian3, Math } from "cesium";
-    import "cesium/Widgets/widgets.css";
+    import "cesium/Build/Cesium/Widgets/widgets.css";
     import "../src/css/main.css"
 
     // Your access token can be found at: https://cesium.com/ion/tokens.
@@ -342,7 +330,7 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 
     // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
     const viewer = new Viewer('cesiumContainer', {
-    terrainProvider: createWorldTerrain()
+        terrainProvider: createWorldTerrain()
     });
 
     // Add Cesium OSM Buildings, a global 3D buildings layer.
