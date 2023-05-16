@@ -4,8 +4,8 @@ import "../src/css/main.css"
 
 // Your access token can be found at: https://cesium.com/ion/tokens.
 // This is the default access token
-Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ODRkYWU2My1iZjBmLTRkMjktYmY1NS03YWUzY2UxNzNhMDEiLCJpZCI6MjU1NDYsImlhdCI6MTY4NDAxNTc3N30.Tk7hqVGbeT0yUKC2qMIgvFRUsRlQO_f4zkMpPg3s0n8';
-GoogleMaps.defaultApiKey = "AIzaSyAZ8EhV6n0W2ju3uBvfR8AGn6kWuawwoyE";
+Ion.defaultAccessToken = '';
+GoogleMaps.defaultApiKey = '';
 
 const viewer = new Viewer("cesiumContainer", {
   timeline: false,
