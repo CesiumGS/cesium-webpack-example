@@ -1,4 +1,4 @@
-run-name: main
+name: main
 on: push
 jobs:
   node_18:
