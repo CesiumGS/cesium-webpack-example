@@ -1,0 +1,20 @@
+name: main
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 16, 18 ]
+    name: Node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: install node ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+           node-version: ${{ matrix.node }}
+      - name: install
+        run: npm install
+      - name: build
+        run: npm run build
+
