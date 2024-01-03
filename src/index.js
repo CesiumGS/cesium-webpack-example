@@ -1,10 +1,10 @@
 import {
   Ion,
   Viewer,
-  createWorldTerrain,
-  createOsmBuildings,
   Cartesian3,
   Math,
+  Terrain,
+  createOsmBuildingsAsync,
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import "../src/css/main.css";
@@ -16,11 +16,12 @@ Ion.defaultAccessToken =
 
 // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
 const viewer = new Viewer("cesiumContainer", {
-  terrainProvider: createWorldTerrain(),
+  terrain: Terrain.fromWorldTerrain(),
 });
 
 // Add Cesium OSM Buildings, a global 3D buildings layer.
-viewer.scene.primitives.add(createOsmBuildings());
+const osmBuildingsTileset = await createOsmBuildingsAsync();
+viewer.scene.primitives.add(osmBuildingsTileset);
 
 // Fly the camera to San Francisco at the given longitude, latitude, and height.
 viewer.camera.flyTo({
