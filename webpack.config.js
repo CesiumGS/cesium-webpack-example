@@ -1,3 +1,5 @@
+"use strict";
+
 // The path to the CesiumJS source code
 const cesiumSource = "node_modules/cesium/Source";
 const cesiumWorkers = "../Build/Cesium/Workers";
