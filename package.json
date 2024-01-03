@@ -35,11 +35,18 @@
     "eslint-plugin-es": "^4.1.0",
     "eslint-plugin-html": "^7.1.0",
     "html-webpack-plugin": "^5.3.2",
+    "husky": "^8.0.3",
     "prettier": "^3.1.1",
     "style-loader": "^3.2.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
+  },
+  "lint-staged": {
+    "*.{js,cjs,html}": [
+      "eslint --cache --quiet",
+      "prettier --write --no-config"
+    ]
   }
 }
