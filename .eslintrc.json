@@ -7,5 +7,11 @@
   },
   "rules": {
     "no-unused-vars": ["error", { "vars": "all", "args": "none" }]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["webpack.config.js"],
+      "extends": ["cesium/node"]
+    }
+  ]
 }
