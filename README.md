@@ -6,17 +6,17 @@ A minimal recommended setup for an applications using [Cesium](https://cesium.co
 
 ## Running this application
 
-````sh
+```sh
 npm install
 npm start
-````
+```
 
 Navigate to `localhost:8080`.
 
 ### Available scripts
 
-* `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
-* `npm run build` - Runs a webpack build with `webpack.config.js`
+- `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
+- `npm run build` - Runs a webpack build with `webpack.config.js`
 
 ## Requiring Cesium in your application
 
@@ -24,16 +24,16 @@ We recommend [importing named exports](https://developer.mozilla.org/en-US/docs/
 
 ### Import named modules from Cesium
 
-````js
-import { Color } from 'cesium';
+```js
+import { Color } from "cesium";
 var c = Color.fromRandom();
-````
+```
 
 ### Import Cesium static asset files
 
-````js
+```js
 import "cesium/Build/Cesium/Widgets/widgets.css";
-````
+```
 
 ## Removing pragmas
 
@@ -41,27 +41,31 @@ To remove pragmas such as a traditional Cesium release build, use the [`strip-pr
 
 Install the plugin with npm,
 
-````sh
+```sh
 npm install strip-pragma-loader --save-dev
-````
+```
 
 and include the loader in `module.rules` with `debug` set to `false`.
 
-````js
-rules: [{
-	test: /\.js$/,
-	enforce: 'pre',
-	include: path.resolve(__dirname, cesiumSource),
-	use: [{
-		loader: 'strip-pragma-loader',
-		options: {
-		    pragmas: {
-				debug: false
-			}
-		}
-	}]
-}]
-````
+```js
+rules: [
+  {
+    test: /\.js$/,
+    enforce: "pre",
+    include: path.resolve(__dirname, cesiumSource),
+    use: [
+      {
+        loader: "strip-pragma-loader",
+        options: {
+          pragmas: {
+            debug: false,
+          },
+        },
+      },
+    ],
+  },
+];
+```
 
 ## Contributions
 

@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": ["cesium/browser"],
+  "plugins": ["html", "es"],
+  "parserOptions": {
+    "ecmaVersion": 2023
+  },
+  "rules": {
+    "no-unused-vars": ["error", { "vars": "all", "args": "none" }]
+  }
+}
