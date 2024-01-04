@@ -27,7 +27,7 @@
     "prettier-check": "prettier --check --no-config \"**/*\""
   },
   "devDependencies": {
-    "cesium": "^1.97.0",
+    "cesium": "^1.113.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "eslint": "^8.56.0",
