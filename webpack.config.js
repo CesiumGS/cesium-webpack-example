@@ -60,10 +60,6 @@ module.exports = {
           from: path.join(cesiumSource, "Widgets"),
           to: `${cesiumBaseUrl}/Widgets`,
         },
-        // If you only installed @cesium/engine use these routes instead:
-        // { from: 'node_modules/@cesium/engine/Build/Workers', to: `${cesiumBaseUrl}/Workers` },
-        // { from: 'node_modules/@cesium/engine/Build/ThirdParty', to: `${cesiumBaseUrl}/ThirdParty` },
-        // { from: 'node_modules/@cesium/engine/Source/Assets', to: `${cesiumBaseUrl}/Assets` },
       ],
     }),
     new webpack.DefinePlugin({
