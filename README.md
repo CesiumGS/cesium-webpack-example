@@ -35,6 +35,20 @@ var c = Color.fromRandom();
 import "cesium/Build/Cesium/Widgets/widgets.css";
 ```
 
+## Cesium sub-packages
+
+CesiumJS requires a few static files to be hosted on your server, like web workers and SVG icons. This example is set up to copy these directories already if you install the whole `cesium` package. However if you only install `@cesium/engine` then you should change the paths in `webpack.config.js` to the ones below:
+
+```js
+new CopyWebpackPlugin({
+  patterns: [
+    { from: 'node_modules/@cesium/engine/Build/Workers', to: `${cesiumBaseUrl}/Workers` },
+    { from: 'node_modules/@cesium/engine/Build/ThirdParty', to: `${cesiumBaseUrl}/ThirdParty` },
+    { from: 'node_modules/@cesium/engine/Source/Assets', to: `${cesiumBaseUrl}/Assets` },
+  ],
+}),
+```
+
 ## Removing pragmas
 
 To remove pragmas such as a traditional Cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
