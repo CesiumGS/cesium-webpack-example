@@ -2,11 +2,12 @@
 
 A minimal recommended setup for an applications using [Cesium](https://cesium.com) with [Webpack](https://webpack.js.org/concepts/).
 
-[![Build Status](https://travis-ci.org/CesiumGS/cesium-webpack-example.svg?branch=using-custom-loader)](https://travis-ci.org/CesiumGS/cesium-webpack-example)
+Jump to the [Webpack 5](./webpack-5/) directory for the most up to date example. We also provide a [Webpack 4](./webpack-4/) example if you are still on the older version.
 
 ## Running this application
 
 ```sh
+# switch to the correspoding webpack-4 or webpack-5 directory
 npm install
 npm start
 ```
@@ -17,6 +18,7 @@ Navigate to `localhost:8080`.
 
 - `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
 - `npm run build` - Runs a webpack build with `webpack.config.js`
+- `npm run start:built` - Hosts a static server of the built assets to demonstrate running the full built code
 
 ## Requiring Cesium in your application
 
