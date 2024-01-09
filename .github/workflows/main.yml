@@ -7,7 +7,7 @@ jobs:
       matrix:
         node: [18, 20]
         webpack-dir: [webpack-4, webpack-5]
-    name: Node ${{ matrix.node }}
+    name: Node ${{ matrix.node }} - ${{ matrix.webpack-dir }}
     defaults:
       run:
         working-directory: ${{ matrix.webpack-dir }}
