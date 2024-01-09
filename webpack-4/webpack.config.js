@@ -33,7 +33,9 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              presets: [["@babel/preset-env", { targets: "defaults, not ie 11" }]],
+              presets: [
+                ["@babel/preset-env", { targets: "defaults, not ie 11" }],
+              ],
               plugins: ["@babel/plugin-transform-optional-chaining"],
             },
           },

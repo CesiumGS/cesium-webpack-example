@@ -1,4 +1,10 @@
-import { Viewer, Cartesian3, Math, Terrain, createOsmBuildingsAsync } from "cesium";
+import {
+  Viewer,
+  Cartesian3,
+  Math,
+  Terrain,
+  createOsmBuildingsAsync,
+} from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import "./css/main.css";
 
