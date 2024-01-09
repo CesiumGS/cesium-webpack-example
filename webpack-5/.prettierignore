@@ -5,7 +5,7 @@
 # Unignore directories (to all depths) and unignore code and style files in these directories
 !.github/**/
 !.vscode/**/
-!src/**/
+!/src/**/
 !doc/**/
 
 !**/*.js
