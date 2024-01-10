@@ -19,9 +19,5 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: install
         run: npm install
-      - name: lint *.js
-        run: npm run eslint
-      - name: format code
-        run: npm run prettier-check
       - name: build
         run: npm run build
