@@ -1,5 +1,5 @@
 {
-  "name": "cesiumjs-webpack-example",
+  "name": "cesiumjs-webpack-4-example",
   "version": "1.0.0",
   "description": "The minimal recommended setup for an app using Cesium with Webpack.",
   "homepage": "https://cesium.com/platform/cesiumjs/",
@@ -22,10 +22,10 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack serve --config webpack.config.js",
-    "start:built": "npx http-server -a localhost -p 8080 dist/",
-    "eslint": "eslint \"./**/*.js\" \"./**/*.html\" --cache --quiet",
-    "prettier": "prettier --write --no-config \"**/*\"",
-    "prettier-check": "prettier --check --no-config \"**/*\""
+    "start:built": "npx http-server -a localhost -p 8080 dist/"
+  },
+  "dependencies": {
+    "cesium": "^1.113.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",
@@ -35,19 +35,11 @@
     "babel-loader": "^8.3.0",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.2.7",
-    "eslint": "^8.56.0",
-    "eslint-config-cesium": "^10.0.2",
-    "eslint-plugin-es": "^4.1.0",
-    "eslint-plugin-html": "^7.1.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.2",
-    "prettier": "^3.1.1",
     "style-loader": "^2.0.0",
     "webpack": "^4.47.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1"
-  },
-  "dependencies": {
-    "cesium": "^1.113.0"
   }
 }

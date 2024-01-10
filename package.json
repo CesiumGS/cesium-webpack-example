@@ -1,0 +1,46 @@
+{
+  "name": "cesiumjs-webpack-example",
+  "version": "1.0.0",
+  "description": "The minimal recommended setup for an app using Cesium with Webpack.",
+  "homepage": "https://cesium.com/platform/cesiumjs/",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Cesium GS, Inc.",
+    "url": "https://cesium.com"
+  },
+  "keywords": [
+    "cesium",
+    "CesiumJS",
+    "webpack",
+    "example"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CesiumGS/cesium-webpack-example.git"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "postinstall": "cd webpack-4 && npm install && cd ../webpack-5 && npm install",
+    "eslint": "eslint \"./**/*.js\" \"./**/*.html\" --cache --quiet",
+    "prettier": "prettier --write --no-config \"**/*\"",
+    "prettier-check": "prettier --check --no-config \"**/*\"",
+    "start-4": "cd webpack-4 && npm run start",
+    "build-4": "cd webpack-4 && npm run build",
+    "start-5": "cd webpack-5 && npm run start",
+    "build-5": "cd webpack-5 && npm run build"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-cesium": "^10.0.2",
+    "eslint-plugin-es": "^4.1.0",
+    "eslint-plugin-html": "^7.1.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.1"
+  },
+  "lint-staged": {
+    "*.{js,html}": [
+      "eslint --cache --quiet",
+      "prettier --write --no-config"
+    ]
+  }
+}

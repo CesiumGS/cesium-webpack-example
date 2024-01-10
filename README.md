@@ -9,16 +9,19 @@ Jump to the [Webpack 5](./webpack-5/) directory for the most up to date example.
 ```sh
 # switch to the correspoding webpack-4 or webpack-5 directory
 npm install
-npm start
+npm run start-4
+npm run start-5
 ```
 
 Navigate to `localhost:8080`.
 
 ### Available scripts
 
-- `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
-- `npm run build` - Runs a webpack build with `webpack.config.js`
-- `npm run start:built` - Hosts a static server of the built assets to demonstrate running the full built code
+- `npm run start-4` - Run the Webpack 4 example
+- `npm run build-4` - Build the Webpack 4 example
+- `npm run start-5` - Run the Webpack 4 example
+- `npm run build-5` - Build the Webpack 4 example
+- `npm run eslint`, `npm run prettier`, `npm run prettier-check` - Lint this project to maintain code style
 
 ## Requiring Cesium in your application
 
@@ -90,3 +93,5 @@ Pull requests are appreciated. Please use the same [Contributor License Agreemen
 ---
 
 Developed by the Cesium team.
+
+Even though this project has nested package.json projects we are not using `npm` workspaces to preserve a more "stand-alone" nature for each example. This allows other developers to copy the sub-directory and use it as-is for a new project.
