@@ -6,7 +6,7 @@ import {
   createOsmBuildingsAsync,
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
-import "../src/css/main.css";
+import "./css/main.css";
 
 // CesiumJS has a default access token built in but it's not meant for active use.
 // please set your own access token can be found at: https://cesium.com/ion/tokens.
@@ -18,8 +18,9 @@ const viewer = new Viewer("cesiumContainer", {
 });
 
 // Add Cesium OSM Buildings, a global 3D buildings layer.
-const osmBuildingsTileset = await createOsmBuildingsAsync();
-viewer.scene.primitives.add(osmBuildingsTileset);
+createOsmBuildingsAsync().then((buildingTileset) => {
+  viewer.scene.primitives.add(buildingTileset);
+});
 
 // Fly the camera to San Francisco at the given longitude, latitude, and height.
 viewer.camera.flyTo({

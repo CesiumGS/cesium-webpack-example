@@ -1,0 +1,39 @@
+{
+  "name": "cesiumjs-webpack-5-example",
+  "version": "1.0.0",
+  "description": "The minimal recommended setup for an app using Cesium with Webpack 5",
+  "homepage": "https://cesium.com/platform/cesiumjs/",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Cesium GS, Inc.",
+    "url": "https://cesium.com"
+  },
+  "keywords": [
+    "cesium",
+    "CesiumJS",
+    "webpack",
+    "example"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CesiumGS/cesium-webpack-example.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --config webpack.config.js",
+    "start:built": "npx http-server -a localhost -p 8080 dist/"
+  },
+  "dependencies": {
+    "cesium": "^1.113.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

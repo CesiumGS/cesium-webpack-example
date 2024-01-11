@@ -5,8 +5,10 @@
 # Unignore directories (to all depths) and unignore code and style files in these directories
 !.github/**/
 !.vscode/**/
-!src/**/
 !doc/**/
+!webpack-4/**/
+!webpack-5/**/
+!src/**/
 
 !**/*.js
 !**/*.css
