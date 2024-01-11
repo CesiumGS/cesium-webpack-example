@@ -16,10 +16,6 @@ module.exports = {
     filename: "app.js",
     path: path.resolve(__dirname, "dist"),
   },
-  // resolve: {
-  //   fallback: { https: false, zlib: false, http: false, url: false },
-  //   mainFiles: ["index", "Cesium"],
-  // },
   module: {
     unknownContextCritical: false,
     rules: [
@@ -39,11 +35,10 @@ module.exports = {
               plugins: ["@babel/plugin-transform-optional-chaining"],
             },
           },
-          // Babel understands import.meta but Webpack doesn't
-          // can't find a way to tell babel not to output it so we need another loader
-          // that can understand it and translate into Webpack's representation
+          // Babel understands the import.meta syntax but doesn't transform it in any way
+          // However Webpack can't parse this and throws an error for an unexpected token
+          // we need to use this extra loader so Webpack can actually bundle the code
           // https://www.npmjs.com/package/@open-wc/webpack-import-meta-loader
-          // TODO: but then we get static dependency errors about `require` in buildModuleUrl instead
           require.resolve("@open-wc/webpack-import-meta-loader"),
         ],
       },

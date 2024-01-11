@@ -1,7 +1,7 @@
 {
   "name": "cesiumjs-webpack-5-example",
   "version": "1.0.0",
-  "description": "The minimal recommended setup for an app using Cesium with Webpack.",
+  "description": "The minimal recommended setup for an app using Cesium with Webpack 5",
   "homepage": "https://cesium.com/platform/cesiumjs/",
   "license": "Apache-2.0",
   "author": {

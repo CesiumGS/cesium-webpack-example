@@ -1,22 +1,24 @@
 # cesium-webpack-example
 
-A minimal recommended setup for an applications using [Cesium](https://cesium.com) with [Webpack](https://webpack.js.org/concepts/).
-
-[![Build Status](https://travis-ci.org/CesiumGS/cesium-webpack-example.svg?branch=using-custom-loader)](https://travis-ci.org/CesiumGS/cesium-webpack-example)
+A minimal recommended setup for an applications using [Cesium](https://cesium.com) with [Webpack 5](https://webpack.js.org/concepts/).
 
 ## Running this application
 
 ```sh
 npm install
 npm start
+# for the built version
+npm run build
+npm run start:built
 ```
 
 Navigate to `localhost:8080`.
 
 ### Available scripts
 
-- `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server
+- `npm start` - Runs a webpack build with `webpack.config.js` and starts a development server at `localhost:8080`
 - `npm run build` - Runs a webpack build with `webpack.config.js`
+- `npm run start:built` - Start a small static server using `http-server` to demonstrate hosting the built version
 
 ## Requiring Cesium in your application
 
@@ -37,7 +39,20 @@ import "cesium/Build/Cesium/Widgets/widgets.css";
 
 ## Cesium sub-packages
 
-CesiumJS requires a few static files to be hosted on your server, like web workers and SVG icons. This example is set up to copy these directories already if you install the whole `cesium` package. However if you only install `@cesium/engine` then you should change the paths in `webpack.config.js` to the ones below:
+CesiumJS requires a few static files to be hosted on your server, like web workers and SVG icons. This example is set up to copy these directories already if you install the whole `cesium` package.
+
+```js
+new CopyWebpackPlugin({
+  patterns: [
+    { from: path.join(cesiumSource, "Workers"), to: `${cesiumBaseUrl}/Workers`, },
+    { from: path.join(cesiumSource, "ThirdParty"), to: `${cesiumBaseUrl}/ThirdParty`, },
+    { from: path.join(cesiumSource, "Assets"), to: `${cesiumBaseUrl}/Assets`, },
+    { from: path.join(cesiumSource, "Widgets"), to: `${cesiumBaseUrl}/Widgets`, },
+  ],
+}),
+```
+
+However if you only install `@cesium/engine` then you should change the paths in `webpack.config.js` to the ones below:
 
 ```js
 new CopyWebpackPlugin({
