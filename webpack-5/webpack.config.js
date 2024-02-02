@@ -21,7 +21,6 @@ module.exports = {
     sourcePrefix: "",
   },
   resolve: {
-    fallback: { https: false, zlib: false, http: false, url: false },
     mainFiles: ["index", "Cesium"],
   },
   module: {
