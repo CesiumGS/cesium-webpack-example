@@ -64,6 +64,19 @@ new CopyWebpackPlugin({
 }),
 ```
 
+## CesiumJS before version `1.114`
+
+If you are using a version of CesiumJS before `1.114` you will need to modify the config to tell it to ignore some external node dependencies. Modify the `resolve` section to include the below:
+
+```js
+  resolve: {
+    fallback: { https: false, zlib: false, http: false, url: false },
+    mainFiles: ["index", "Cesium"],
+  },
+```
+
+See cesium PR [#11773](https://github.com/CesiumGS/cesium/pull/11773) for more information
+
 ## Removing pragmas
 
 To remove pragmas such as a traditional Cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
