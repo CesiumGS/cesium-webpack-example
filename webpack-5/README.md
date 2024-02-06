@@ -64,6 +64,16 @@ new CopyWebpackPlugin({
 }),
 ```
 
+Additionally you will have to import a different widgets css file in `src/index.js`.
+
+```js
+// Change this import
+import "cesium/Build/Cesium/Widgets/widgets.css";
+
+// To this one from the cesium/engine package
+import "@cesium/engine/Source/Widget/CesiumWidget.css";
+```
+
 ## CesiumJS before version `1.114`
 
 If you are using a version of CesiumJS before `1.114` you will need to modify the config to tell it to ignore some external node dependencies. Modify the `resolve` section to include the below:

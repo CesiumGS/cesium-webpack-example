@@ -57,6 +57,16 @@ new CopyWebpackPlugin({
 }),
 ```
 
+Additionally you will have to import a different widgets css file in `src/index.js`.
+
+```js
+// Change this import
+import "cesium/Build/Cesium/Widgets/widgets.css";
+
+// To this one from the cesium/engine package
+import "@cesium/engine/Source/Widget/CesiumWidget.css";
+```
+
 ## Removing pragmas
 
 To remove pragmas such as a traditional Cesium release build, use the [`strip-pragma-loader`](https://www.npmjs.com/package/strip-pragma-loader).
