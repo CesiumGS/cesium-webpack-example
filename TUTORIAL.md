@@ -375,7 +375,7 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
 
    // Add Cesium OSM Buildings, a global 3D buildings layer.
    const buildingTileset = await createOsmBuildingsAsync();
-   viewer.scene.primitives.add(buildingTileset);  
+   viewer.scene.primitives.add(buildingTileset);
 
    // Fly the camera to San Francisco at the given longitude, latitude, and height.
    viewer.camera.flyTo({
