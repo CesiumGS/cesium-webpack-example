@@ -368,6 +368,9 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
    import "cesium/Widgets/widgets.css";
    import "../src/css/main.css";
 
+   // Your access token can be found at: https://cesium.com/ion/tokens.
+   // Ion.defaultAccessToken = "YOUR TOKEN HERE";
+
    // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
    const viewer = new Viewer("cesiumContainer", {
      terrain: Terrain.fromWorldTerrain(),
