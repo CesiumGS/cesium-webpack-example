@@ -360,8 +360,8 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
    import {
      Ion,
      Viewer,
-     createWorldTerrain,
-     createOsmBuildings,
+     Terrain,
+     createOsmBuildingsAsync,
      Cartesian3,
      Math,
    } from "cesium";
@@ -369,17 +369,16 @@ First, define where CesiumJS is. This tutorial uses the source code, so webpack 
    import "../src/css/main.css";
 
    // Your access token can be found at: https://cesium.com/ion/tokens.
-   // This is the default access token
-   Ion.defaultAccessToken =
-     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlYWE1OWUxNy1mMWZiLTQzYjYtYTQ0OS1kMWFjYmFkNjc5YzciLCJpZCI6NTc3MzMsImlhdCI6MTYyNzg0NTE4Mn0.XcKpgANiY19MC4bdFUXMVEBToBmqS8kuYpUlxJHYZxk";
+   // Ion.defaultAccessToken = "YOUR TOKEN HERE";
 
    // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
    const viewer = new Viewer("cesiumContainer", {
-     terrainProvider: createWorldTerrain(),
+     terrain: Terrain.fromWorldTerrain(),
    });
 
    // Add Cesium OSM Buildings, a global 3D buildings layer.
-   viewer.scene.primitives.add(createOsmBuildings());
+   const buildingTileset = await createOsmBuildingsAsync();
+   viewer.scene.primitives.add(buildingTileset);
 
    // Fly the camera to San Francisco at the given longitude, latitude, and height.
    viewer.camera.flyTo({
